@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"label": "Rust: cargo compete test",
+			"command": "cd ${fileDirname} &&cargo compete test --src ${file}"
+		},
+        {
+            "label": "Build single Rust file",
+            "type": "shell",
+            "command": "cd ${fileDirname} &&cargo build",
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            }
+        }
+	]
+}

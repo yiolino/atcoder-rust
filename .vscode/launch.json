@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug Run",
+            "sourceLanguages": [
+                "rust"
+            ],
+            "terminal": "integrated",
+            "preLaunchTask": "Build single Rust file",
+            "program": "${workspaceRoot}/contest/target/debug/abc084-${fileBasenameNoExtension}",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}
