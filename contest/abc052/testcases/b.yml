@@ -1,0 +1,20 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      5
+      IIDID
+    out: |
+      2
+  - name: sample2
+    in: |
+      7
+      DDIDDII
+    out: |
+      0
+
+extend: []
