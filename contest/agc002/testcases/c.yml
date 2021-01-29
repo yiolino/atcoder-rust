@@ -1,0 +1,32 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      3 50
+      30 20 10
+    out: |
+      Possible
+      2
+      1
+  - name: sample2
+    in: |
+      2 21
+      10 10
+    out: |
+      Impossible
+  - name: sample3
+    in: |
+      5 50
+      10 20 30 40 50
+    out: |
+      Possible
+      1
+      2
+      3
+      4
+
+extend: []
