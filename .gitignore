@@ -1,3 +1,4 @@
 contest/target/debug/*
 contest/*/target
+contest/*/testcases
 **/.DS_Store
