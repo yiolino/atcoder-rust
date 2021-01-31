@@ -1,0 +1,23 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      2 1 0
+    out: |
+      Takahashi
+  - name: sample2
+    in: |
+      2 2 0
+    out: |
+      Aoki
+  - name: sample3
+    in: |
+      2 2 1
+    out: |
+      Takahashi
+
+extend: []

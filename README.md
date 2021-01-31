@@ -13,3 +13,7 @@ https://stackoverflow.com/questions/58669865/how-to-get-the-minimum-value-of-a-v
 ## sortしてindexを返す
 https://qiita.com/osanshouo/items/71b0272cd5e156cbf5f2  
 
+## 約数の列挙
+https://algo-logic.info/divisor/
+
+
