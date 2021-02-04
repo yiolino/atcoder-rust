@@ -98,8 +98,17 @@ smallvec = "=1.2.0"
 [new.template.src]
 kind = "inline"
 content = '''
+use proconio::{input,fastout};
+
+#[fastout]
+#[allow(unused_imports)]
+#[allow(non_snake_case)]
 fn main() {
-    todo!();
+    input!{
+
+    }
+
+    println!("{}", );
 }
 '''
 
