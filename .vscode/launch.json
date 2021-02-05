@@ -10,7 +10,7 @@
             ],
             "terminal": "integrated",
             "preLaunchTask": "Build single Rust file",
-            "program": "${workspaceRoot}/contest/target/debug/agc024-${fileBasenameNoExtension}",
+            "program": "${workspaceRoot}/contest/target/debug/abc079-${fileBasenameNoExtension}",
             "args": [],
             "cwd": "${workspaceFolder}",
         }
