@@ -98,7 +98,7 @@ smallvec = "=1.2.0"
 [new.template.src]
 kind = "inline"
 content = '''
-use proconio::{input,fastout};
+use proconio::{input,fastout, marker::Chars};
 
 #[fastout]
 #[allow(non_snake_case)]
