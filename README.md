@@ -19,3 +19,13 @@ https://algo-logic.info/divisor/
 
 ## pairでのsort
 abc121-c
+
+## 大文字、小文字の判断
+c.is_uppercase(), c.is_lowercase()... c: char, return: bool
+
+## Charsのiteration
+for (i, c) in s.into_iter().enumerate() {
+
+## Vecのソート, 反転
+vec.sort()
+vec.reverse()

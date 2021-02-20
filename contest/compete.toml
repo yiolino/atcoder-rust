@@ -98,11 +98,11 @@ smallvec = "=1.2.0"
 [new.template.src]
 kind = "inline"
 content = '''
+#[allow(unused_imports)]
 use proconio::{input,fastout, marker::Chars};
 
 #[fastout]
 #[allow(non_snake_case)]
-#[allow(unused_imports)]
 fn main() {
     input!{
         
