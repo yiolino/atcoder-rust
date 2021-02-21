@@ -44,3 +44,9 @@ for word in text.split_whitespace() {
 }
 
 println!("{:?}", map);
+
+
+## 平方根
+i64にはsqrtメソッドはないので、f64にキャストします。
+let s = (q as f64).sqrt();
+
