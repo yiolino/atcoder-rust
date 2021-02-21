@@ -29,3 +29,18 @@ for (i, c) in s.into_iter().enumerate() {
 ## Vecのソート, 反転
 vec.sort()
 vec.reverse()
+
+## HashMap 古い値に基づいて値を更新する。
+https://doc.rust-jp.rs/book-ja/ch08-03-hash-maps.html#古い値に基づいて値を更新する
+use std::collections::HashMap;
+
+let text = "hello world wonderful world";
+
+let mut map = HashMap::new();
+
+for word in text.split_whitespace() {
+    let count = map.entry(word).or_insert(0);
+    *count += 1;
+}
+
+println!("{:?}", map);
