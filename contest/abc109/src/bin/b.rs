@@ -15,8 +15,8 @@ fn main() {
     for i in 0..N - 1 {
         let word_1:Vec<char> = W[i as usize].chars().collect();
         let word_2:Vec<char> = W[(i + 1) as usize].chars().collect();
-        let tail = word_1[(word_1.len() - 1) as usize];
-        let head = word_2[0];
+        let tail = word_1.last().unwrap();
+        let head = &word_2[0];
         if tail != head {
             ans = "No";
             break;
