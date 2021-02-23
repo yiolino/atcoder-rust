@@ -50,3 +50,10 @@ println!("{:?}", map);
 i64にはsqrtメソッドはないので、f64にキャストします。
 let s = (q as f64).sqrt();
 
+
+## floatのmin, maxは std::cmp::min, maxを用いることができない。
+https://doc.rust-lang.org/std/primitive.f64.html#method.max
+let x = 1.0_f64;
+let y = 2.0_f64;
+
+assert_eq!(x.min(y), x);
