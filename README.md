@@ -57,3 +57,19 @@ let x = 1.0_f64;
 let y = 2.0_f64;
 
 assert_eq!(x.min(y), x);
+
+## vecの要素の比較
+https://stackoverflow.com/questions/29504514/whats-the-best-way-to-compare-2-vectors-or-strings-element-by-element
+fn main() {
+    let a = "Hello";
+    let b = "World";
+
+    let matching = a.chars().zip(b.chars()).filter(|&(a, b)| a == b).count();
+    println!("{}", matching);
+
+    let a = [1, 2, 3, 4, 5];
+    let b = [1, 1, 3, 3, 5];
+
+    let matching = a.iter().zip(&b).filter(|&(a, b)| a == b).count();
+    println!("{}", matching);
+}
