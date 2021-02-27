@@ -26,6 +26,11 @@ c.is_uppercase(), c.is_lowercase()... c: char, return: bool
 ## Charsのiteration
 for (i, c) in s.into_iter().enumerate() {
 
+&Charsでiterationしたい場合　https://webbibouroku.com/Blog/Article/rust-iter-index
+for (i, val) in (0_i32..).zip(a.iter()) {
+    println!("{}: {}", i, val);
+}
+
 ## Vecのソート, 反転
 vec.sort()
 vec.reverse()
