@@ -37,18 +37,15 @@ vec.reverse()
 
 ## HashMap 古い値に基づいて値を更新する。
 https://doc.rust-jp.rs/book-ja/ch08-03-hash-maps.html#古い値に基づいて値を更新する
-use std::collections::HashMap;
+https://qiita.com/hystcs/items/75183bcf38bf95cc2ce0
 
-let text = "hello world wonderful world";
-
-let mut map = HashMap::new();
-
-for word in text.split_whitespace() {
-    let count = map.entry(word).or_insert(0);
-    *count += 1;
+let mut map = std::collections::HashMap::new();
+for c in "abcabc".chars() {
+    *map.entry(c).or_insert(0) += 1;
 }
 
-println!("{:?}", map);
+println!("{:?}", map);  // {'c': 2, 'a': 2, 'b': 2}
+
 
 
 ## 平方根
