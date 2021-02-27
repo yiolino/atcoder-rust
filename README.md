@@ -46,6 +46,9 @@ for c in "abcabc".chars() {
 
 println!("{:?}", map);  // {'c': 2, 'a': 2, 'b': 2}
 
+## BTreeSet
+https://maguro.dev/btree-maximum-value/
+
 
 
 ## 平方根
