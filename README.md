@@ -78,3 +78,7 @@ fn main() {
     let matching = a.iter().zip(&b).filter(|&(a, b)| a == b).count();
     println!("{}", matching);
 }
+
+
+## combination
+let vec:Vec<Vec<i64>> = (0..N).combinations(2).collect();
