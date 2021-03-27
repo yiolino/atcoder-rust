@@ -12,8 +12,6 @@ https://stackoverflow.com/questions/58669865/how-to-get-the-minimum-value-of-a-v
 let ans = dp[n - 1].iter().max().unwrap();
 ```
 
-
-
 ## sortしてindexを返す
 https://qiita.com/osanshouo/items/71b0272cd5e156cbf5f2  
 
