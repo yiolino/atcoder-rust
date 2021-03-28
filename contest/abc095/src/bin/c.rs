@@ -2,6 +2,7 @@
 use proconio::{input, fastout, marker::Chars};
 #[allow(unused_imports)]
 use std::collections::{HashSet, HashMap, BTreeSet};
+use std::cmp::{min, max};
 
 #[fastout]
 #[allow(non_snake_case)]
@@ -14,11 +15,10 @@ fn main() {
         Y: i64,
     }
 
-    let mut min_price = 1000_000_000_000;
+    let mut min_price = 1_000_000_000_000;
+
     for i in 0..=100_000 {
-        let cand = i * 2 * C + std::cmp::max(0, X - i) * A + std::cmp::max(0, Y - i) * B;
-        min_price = std::cmp::min(min_price, cand);
+        min_price = min_price.min(i * 2*C + max(0, X - i) * A + max(0, Y - i) * B);
     }
-    
     println!("{}", min_price);
 }
