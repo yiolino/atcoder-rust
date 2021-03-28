@@ -10,15 +10,7 @@ use std::cmp::{max, min};
 fn main() {
     input!{
         N: usize,
-        mut A: [usize; N],
-    }
-
-    A.sort();
-
-    let mut ans = 0;
-
-    for i in 0..N {
-        
+        mut _A: [usize; N],
     }
 
     // let mut ans = 0;

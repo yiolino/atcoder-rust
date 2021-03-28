@@ -2,6 +2,7 @@
 use proconio::{input, fastout, marker::Chars};
 #[allow(unused_imports)]
 use std::collections::{HashSet, HashMap, BTreeSet};
+#[allow(unused_imports)]
 use std::cmp::{min, max};
 
 #[fastout]
