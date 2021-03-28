@@ -46,6 +46,18 @@ for c in "abcabc".chars() {
     *map.entry(c).or_insert(0) += 1;
 }
 
+## HashMap Keyがなければ挿入する
+https://keens.github.io/blog/2020/05/23/rustnohashmaphaentrygabenri/
+```
+// 準備
+let mut map = HashMap::<String, Vec<String>>::new();
+let key = "Hoge".to_string();
+let value = "Huga".to_string();
+
+// Entry APIを使ったコード
+map.entry(key).or_insert_with(|| vec![]).push(value);
+```
+
 println!("{:?}", map);  // {'c': 2, 'a': 2, 'b': 2}
 
 ## BTreeSet

@@ -17,20 +17,24 @@ fn main() {
                     .sum();
     let max_v = max_v as usize;
 
-    let mut dp = vec![vec![0; max_v + 1]; N + 1];
+    let mut dp = vec![vec![10_000_000_000; max_v + 1]; N + 1];
+    dp[0][0] = 0;
 
     for (i, (weight, value)) in wv.iter().enumerate() {
-        for j in 1..=max_v {
-            if (j - *weight) as i64 >= 0 {
-            dp[i + 1][j] = dp[i][j].min(dp[i][j - *value] + *weight);
+        for j in 0..max_v+1 {
+            if j as i64 - *value as i64 >= 0 {
+            dp[i + 1][j] = dp[i+1][j].min(dp[i][j - *value] + *weight);
             }
-
+            dp[i + 1][j] = dp[i + 1][j].min(dp[i][j])
         }
     }
 
+    let mut ans = 0;
+    for j in 0..max_v+1 {
+        if dp[N][j] <= W {
+            ans = j;
+        }
+    }
 
-
-
-
-    println!();
+    println!("{}", ans);
 }
