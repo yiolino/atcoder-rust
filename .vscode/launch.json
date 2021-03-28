@@ -10,7 +10,7 @@
             ],
             "terminal": "integrated",
             "preLaunchTask": "Build single Rust file",
-            "program": "${workspaceRoot}/contest/target/debug/sumitrust2019-${fileBasenameNoExtension}",
+            "program": "${workspaceRoot}/contest/target/debug/arc116-${fileBasenameNoExtension}",
             "args": [],
             "cwd": "${workspaceFolder}",
         }
