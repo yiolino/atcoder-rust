@@ -9,8 +9,38 @@ use std::cmp::{max, min};
 #[allow(non_snake_case)]
 fn main() {
     input!{
-        
+        N: usize,
+        M: usize,
+        xy: [(usize, usize); M],
     }
 
-    println!();
+    let mut relation = vec![vec![false; N]; N];
+
+    for (x, y) in xy {
+        relation[x-1][y-1] = true;
+        relation[y-1][x-1] = true;
+    }
+
+    let mut ans = 0;
+
+    for bit in 0..1 << N {
+        let mut is_ok = true;
+        let num = (bit as u64).count_ones();
+
+        for i in 1..N {
+            for j in 0..i {
+                if (bit >> i & 1 > 0) && (bit >> j & 1 > 0) {
+                    if !relation[i][j] {
+                        is_ok = false;
+                    }
+                }   
+            }
+        }
+
+        if is_ok && num > ans {
+            ans = num;
+        }
+    }
+
+    println!("{}", ans);
 }
