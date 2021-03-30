@@ -14,12 +14,11 @@ fn main() {
         B: i64,
     }
 
-    let mut ans = -1;
     if (B - A) % 2 == 0 {
-        ans = (B - A) / 2;
+        let ans = (B - A) / 2;
+        println!("{}", ans);
     } else {
-        ans = (B - A - 1) / 2 + min(N - B, A - 1) + 1;
+        let ans = (B - A - 1) / 2 + min(N - B, A - 1) + 1;
+        println!("{}", ans);
     }
-
-    println!("{}", ans);
 }
