@@ -23,22 +23,19 @@ fn main() {
         }
 
         // フラグが立っている場所だけを取り出す
-        let mut buildings = vec![];
+        let mut tmp_ans = 0;
+        let mut tmp_max = 0;
         for i in 0..N {
             if bit >> i & 1 > 0 {
-                buildings.push(a[i]);
+                if a[i] <= tmp_max {
+                    tmp_ans += tmp_max - a[i] + 1;
+                    tmp_max += 1;
+                }
             }
+            tmp_max = tmp_max.max(a[i]);
         }
 
-        // 左から建物が見えるように、手前より低ければ高くしていく
-        let mut tmp = 0;
-        for i in 0..buildings.len()-1 {
-            if buildings[i+1] <= buildings[i] {
-                tmp += buildings[i] + 1 - buildings[i + 1];
-                buildings[i+1] = buildings[i] + 1;
-            }
-        }
-        ans = ans.min(tmp);
+        ans = ans.min(tmp_ans);
     }
 
     println!("{}", ans);
