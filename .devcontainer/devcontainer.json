@@ -1,5 +1,5 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/rust
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.166.0/containers/rust
 {
 	"name": "Rust",
 	"build": {
@@ -32,5 +32,5 @@
 	// "postCreateCommand": "rustc --version",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+	// "remoteUser": "vscode"
 }
