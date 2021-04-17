@@ -1,7 +1,7 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.166.0/containers/rust/.devcontainer/base.Dockerfile
 
 # apple silicon image
-FROM rust:bullseye
+FROM rust:buster
 
 # [Option] Install zsh
 ARG INSTALL_ZSH="true"
