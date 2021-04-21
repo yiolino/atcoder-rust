@@ -96,3 +96,7 @@ fn main() {
 
 ## combination
 let vec:Vec<Vec<i64>> = (0..N).combinations(2).collect();
+
+
+## 二分探索 upper_bound, lower_bound
+https://github.com/hatoo/competitive-rust-snippets/blob/master/src/binary_search.rs
