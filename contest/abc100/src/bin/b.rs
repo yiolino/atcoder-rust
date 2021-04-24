@@ -9,8 +9,17 @@ use std::cmp::{max, min};
 #[allow(non_snake_case)]
 fn main() {
     input!{
-        
+        D: u32,
+        N: i64,
     }
 
-    println!();
+    if N == 100 {
+        let ans = 101 * 10i64.pow(D * 2);
+        println!("{}", ans);
+        return;
+    }
+
+    let ans = N * 10i64.pow(D * 2);
+
+    println!("{}", ans);
 }
