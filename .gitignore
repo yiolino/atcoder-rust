@@ -1,6 +1,3 @@
 contest/target/debug/*
 contest/*/target
-contest/*/testcases
-contest/*/Cargo.toml
-contest/*/Cargo.lock
 **/.DS_Store
