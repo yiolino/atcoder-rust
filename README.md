@@ -100,3 +100,27 @@ let vec:Vec<Vec<i64>> = (0..N).combinations(2).collect();
 
 ## 二分探索 upper_bound, lower_bound
 https://github.com/hatoo/competitive-rust-snippets/blob/master/src/binary_search.rs
+
+## 最小公倍数、最大公約数
+```
+// ユークリッドの互助法による最大公約数
+#[allow(non_snake_case)]
+fn GCD(m:i64, n:i64) -> i64 {
+    // 再帰関数で実装する。
+    // ベースケース
+    if m % n == 0 {
+        return n;
+    }
+
+    // 再帰呼び出し
+    GCD(n, m % n)
+}
+
+// 最小公倍数
+#[allow(non_snake_case)]
+fn LCM(m:i64, n:i64) -> i64 {
+    let u = max(m, n);
+    let l = min(m, n);
+    u * l / GCD(u, l)
+}
+````
