@@ -7,7 +7,6 @@ use std::cmp::{max, min};
 #[allow(unused_imports)]
 use itertools::Itertools;
 
-#[fastout]
 #[allow(non_snake_case)]
 fn main() {
     input!{
