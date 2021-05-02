@@ -123,4 +123,29 @@ fn LCM(m:i64, n:i64) -> i64 {
     let l = min(m, n);
     u * l / GCD(u, l)
 }
-````
+```
+
+
+## deque 
+https://qiita.com/wotsushi/items/4a6797f52080453a0440#deque
+
+```
+let mut d = std::collections::VecDeque::new();
+
+# dequeの先頭に要素を追加する
+#（例）deque d の先頭に4を追加する
+d.push_fron(4);
+
+# deque d の末尾に2を追加する
+d.push_back(2);
+
+# deque d の先頭要素を削除し、削除した要素をpopped_headに束縛する。
+let popped_head = d.pop_front().unwrap();
+
+# deque d の末尾要素を削除し、削除した要素をpopped_tail に束縛する
+let popped_tail = d.pop_back().unwrap();
+```
+
+
+## Charcter の vector　を集めてStringにする
+let ans = ans.into_iter().collect::<String>();

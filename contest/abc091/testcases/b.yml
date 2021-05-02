@@ -1,0 +1,70 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      3
+      apple
+      orange
+      apple
+      1
+      grape
+    out: |
+      2
+  - name: sample2
+    in: |
+      3
+      apple
+      orange
+      apple
+      5
+      apple
+      apple
+      apple
+      apple
+      apple
+    out: |
+      1
+  - name: sample3
+    in: |
+      1
+      voldemort
+      10
+      voldemort
+      voldemort
+      voldemort
+      voldemort
+      voldemort
+      voldemort
+      voldemort
+      voldemort
+      voldemort
+      voldemort
+    out: |
+      0
+  - name: sample4
+    in: |
+      6
+      red
+      red
+      blue
+      yellow
+      yellow
+      red
+      5
+      red
+      red
+      yellow
+      green
+      blue
+    out: |
+      1
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
