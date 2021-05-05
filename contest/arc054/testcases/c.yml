@@ -1,0 +1,52 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      3
+      110
+      101
+      011
+    out: |
+      Even
+  - name: sample2
+    in: |
+      3
+      110
+      111
+      011
+    out: |
+      Odd
+  - name: sample3
+    in: |
+      2
+      00
+      00
+    out: |
+      Even
+  - name: sample4
+    in: |
+      12
+      000000100000
+      011111111111
+      000000100000
+      000111111100
+      100100000100
+      100111111100
+      100100000100
+      100111111100
+      100100000100
+      100111111100
+      100000000000
+      111111111111
+    out: |
+      Even
+
+extend:
+  - type: Text
+    path: "./c"
+    in: /in/*.txt
+    out: /out/*.txt
