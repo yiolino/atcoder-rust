@@ -32,7 +32,15 @@ fn main() {
 
     let mut ans = 0;
     for (k, v) in s_vec {
+        let v_t = map_t.get(k);
+        let t  = match v_t {
+            Some(i) => i,
+            None => &0,
+        };
+
+        ans = ans.max(v - *t);
 
     }
-    println!("{:?}", s_vec)
+
+    println!("{}", ans);
 }
