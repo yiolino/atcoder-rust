@@ -1,0 +1,45 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      3 3
+      o.o
+      .Eo
+      ooo
+    out: |
+      3
+  - name: sample2
+    in: |
+      2 2
+      E.
+      ..
+    out: |
+      0
+  - name: sample3
+    in: |
+      3 4
+      o...
+      o...
+      oooE
+    out: |
+      5
+  - name: sample4
+    in: |
+      5 11
+      ooo.ooo.ooo
+      o.o.o...o..
+      ooo.oE..o..
+      o.o.o.o.o..
+      o.o.ooo.ooo
+    out: |
+      12
+
+extend:
+  - type: Text
+    path: "./e"
+    in: /in/*.txt
+    out: /out/*.txt
