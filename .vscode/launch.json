@@ -10,7 +10,7 @@
             ],
             "terminal": "integrated",
             "preLaunchTask": "Build single Rust file",
-            "program": "${workspaceRoot}/contest/target/debug/agc037-${fileBasenameNoExtension}",
+            "program": "${workspaceRoot}/contest/target/debug/joi2008ho-${fileBasenameNoExtension}",
             "args": [],
             "cwd": "${workspaceFolder}",
         }
