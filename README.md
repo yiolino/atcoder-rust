@@ -143,9 +143,25 @@ d.push_back(2);
 let popped_head = d.pop_front().unwrap();
 
 # deque d の末尾要素を削除し、削除した要素をpopped_tail に束縛する
+```
 let popped_tail = d.pop_back().unwrap();
 ```
 
 
 ## Charcter の vector　を集めてStringにする
+```
 let ans = ans.into_iter().collect::<String>();
+```
+
+## パスカルの三角形
+```
+    // パスカルの三角形をテーブルとして作る
+    let mut comb = vec![vec![0; 61]; 61];  // 可変配列の確保
+    comb[0][0] = 1_i64;
+    for i in 0..60 {
+        for j in 0..i+1 {
+            comb[i+1][j] += comb[i][j];
+            comb[i+1][j+1] += comb[i][j];
+        }
+    }
+```
