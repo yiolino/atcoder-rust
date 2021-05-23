@@ -134,7 +134,7 @@ let mut d = std::collections::VecDeque::new();
 
 # dequeの先頭に要素を追加する
 #（例）deque d の先頭に4を追加する
-d.push_fron(4);
+d.push_front(4);
 
 # deque d の末尾に2を追加する
 d.push_back(2);
