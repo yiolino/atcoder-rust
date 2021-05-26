@@ -26,25 +26,32 @@ abc121-c
 c.is_uppercase(), c.is_lowercase()... c: char, return: bool
 
 ## Charsのiteration
+```
 for (i, c) in s.into_iter().enumerate() {
+```
 
 &Charsでiterationしたい場合　https://webbibouroku.com/Blog/Article/rust-iter-index
+```
 for (i, val) in (0_i32..).zip(a.iter()) {
     println!("{}: {}", i, val);
 }
+```
 
 ## Vecのソート, 反転
+```
 vec.sort()
 vec.reverse()
+```
 
 ## HashMap 古い値に基づいて値を更新する。
 https://doc.rust-jp.rs/book-ja/ch08-03-hash-maps.html#古い値に基づいて値を更新する
 https://qiita.com/hystcs/items/75183bcf38bf95cc2ce0
-
+```
 let mut map = std::collections::HashMap::new();
 for c in "abcabc".chars() {
     *map.entry(c).or_insert(0) += 1;
 }
+```
 
 ## HashMap Keyがなければ挿入する
 https://keens.github.io/blog/2020/05/23/rustnohashmaphaentrygabenri/
@@ -56,9 +63,9 @@ let value = "Huga".to_string();
 
 // Entry APIを使ったコード
 map.entry(key).or_insert_with(|| vec![]).push(value);
-```
 
 println!("{:?}", map);  // {'c': 2, 'a': 2, 'b': 2}
+```
 
 ## BTreeSet
 https://maguro.dev/btree-maximum-value/
@@ -67,18 +74,22 @@ https://maguro.dev/btree-maximum-value/
 
 ## 平方根
 i64にはsqrtメソッドはないので、f64にキャストします。
+```
 let s = (q as f64).sqrt();
-
+```
 
 ## floatのmin, maxは std::cmp::min, maxを用いることができない。
 https://doc.rust-lang.org/std/primitive.f64.html#method.max
+```
 let x = 1.0_f64;
 let y = 2.0_f64;
 
 assert_eq!(x.min(y), x);
+```
 
 ## vecの要素の比較
 https://stackoverflow.com/questions/29504514/whats-the-best-way-to-compare-2-vectors-or-strings-element-by-element
+```
 fn main() {
     let a = "Hello";
     let b = "World";
@@ -92,11 +103,12 @@ fn main() {
     let matching = a.iter().zip(&b).filter(|&(a, b)| a == b).count();
     println!("{}", matching);
 }
-
+```
 
 ## combination
+```
 let vec:Vec<Vec<i64>> = (0..N).combinations(2).collect();
-
+```
 
 ## 二分探索 upper_bound, lower_bound
 https://github.com/hatoo/competitive-rust-snippets/blob/master/src/binary_search.rs
@@ -164,4 +176,26 @@ let ans = ans.into_iter().collect::<String>();
             comb[i+1][j+1] += comb[i][j];
         }
     }
+```
+
+## mod_pow
+https://qiita.com/drken/items/3b4fdf0a78e7a138cd9a#4-累乗-an
+```
+// mod_powの実装。型がprimitiveなら何でも取れるようにする。
+// a: 底, n: 指数, m: mod
+fn mod_pow<T>(mut a: T, mut n: T, m: T) -> T 
+where
+    T: num_traits::PrimInt,
+{   
+    let mut res = T::one();
+    while n > T::zero() {
+        if n & T::one() == T::one() {
+            res = res * a % m;
+        }
+        a = a * a % m;
+        n = n >> 1;
+    }
+
+    res
+}
 ```
