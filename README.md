@@ -158,7 +158,6 @@ d.push_back(2);
 let popped_head = d.pop_front().unwrap();
 
 # deque d の末尾要素を削除し、削除した要素をpopped_tail に束縛する
-```
 let popped_tail = d.pop_back().unwrap();
 ```
 
@@ -215,5 +214,62 @@ where
     } else {
         return (x & x - T::one()) == T::zero()
     }
+}
+```
+
+
+## 素因数分解
+```
+// 素因数分解する関数
+fn prime_factorize(mut n: i64) -> Vec<(i64, i64)> {
+    let mut vec = vec![];
+
+    let mut cnt = 2;
+    while cnt * cnt <= n {
+        if n % cnt != 0 {
+            cnt += 1;
+            continue;
+        }
+
+        let mut ex = 0; // 指数
+        while n % cnt == 0 {
+            ex += 1;
+            n /= cnt;
+        }
+
+        vec.push((cnt, ex));
+
+        cnt += 1;
+    }   
+
+    // 最後に残った数について
+    if n != 1 {
+        vec.push((n, 1));
+    }
+    
+    vec
+}
+```
+
+
+## 素数判定
+```
+// 素数判定の関数
+fn is_prime(n: i64) -> bool {
+    if n == 1 {
+        return false;
+    }
+
+    for j in 2..=n {
+        if j * j > n {
+            break;
+        }
+
+        if n % j == 0 {
+            return false;
+        }
+    }
+
+    true
 }
 ```
