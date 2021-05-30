@@ -202,3 +202,18 @@ where
     res
 }
 ```
+
+## 2の累乗数の判定
+```
+// 2の累乗かどうかの判定
+fn is_pow2<T>(x: T) -> bool
+where
+    T: num_traits::PrimInt,
+{
+    if x == T::zero() {
+        return false
+    } else {
+        return (x & x - T::one()) == T::zero()
+    }
+}
+```
