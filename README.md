@@ -21,6 +21,9 @@ https://algo-logic.info/divisor/
 
 ## pairでのsort
 abc121-c
+```
+    shops.sort_by_key(|s| s.price);
+```
 
 ## 大文字、小文字の判断
 c.is_uppercase(), c.is_lowercase()... c: char, return: bool
