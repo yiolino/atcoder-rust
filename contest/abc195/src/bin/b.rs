@@ -16,34 +16,17 @@ fn main() {
         W: i64,
     }
 
-    let mut min = W * 1000 / B;
-    let mut max = W * 1000 / A;
+    let mut max = 0;
+    let mut min = std::i64::MAX;
 
-    let mut flg_min = false;
-    let mut flg_max = false;
-
-    for _ in 0..=(max - min) {
-        for i in 0..=min {
-            let tmp = A * 0 + B * (min - i);
-            if tmp == W * 1000 {
-                flg_min = true;
-                break;
-            }
+    for n in 0..=1000_000 {
+        if A * n <= 1000 * W && 1000 * W <= B * n {
+            max = max.max(n);
+            min = min.min(n);
         }
-
-        for i in 0..=max {
-            let tmp = A * max + B * (max - i);
-            if tmp == W * 1000 {
-                flg_max = true;
-                break;
-            }
-        }
-
-        min += 1;
-        max -= 1;
     }
 
-    if flg_min && flg_max {
+    if max != 0 {
         println!("{} {}", min, max);
     } else {
         println!("UNSATISFIABLE");
