@@ -1,0 +1,41 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      3
+      Mozart plays magic.
+    out: |
+      7003 756 791
+  - name: sample2
+    in: |
+      3
+      Columbus found USA.
+    out: |
+      15716 492 6
+  - name: sample3
+    in: |
+      7
+      I have a scissors for right hand.
+    out: |
+      85 616606 40 0983 892
+  - name: sample4
+    in: |
+      4
+      abc ab aa aiueo
+    out: |
+      11 1
+  - name: sample5
+    in: |
+      4
+      aaa aa a aa
+    out: "\n"
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt

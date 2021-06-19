@@ -1,0 +1,49 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      eye lid
+      4
+      lie
+      die
+      did
+      dye
+    out: |
+      3
+      eye
+      dye
+      die
+      lie
+      lid
+  - name: sample2
+    in: |
+      eye eye
+      4
+      lie
+      die
+      did
+      dye
+    out: |
+      0
+      eye
+      eye
+  - name: sample3
+    in: |
+      eye lid
+      4
+      lie
+      lip
+      did
+      dye
+    out: |
+      -1
+
+extend:
+  - type: Text
+    path: "./c"
+    in: /in/*.txt
+    out: /out/*.txt
