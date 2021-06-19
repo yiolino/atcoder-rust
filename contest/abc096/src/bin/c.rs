@@ -15,17 +15,36 @@ fn main() {
         s: [Chars; h],
     }
 
-    let mut ans = "Yes";
 
     for i in 0..h {
-        for si in &s[i] {
+        for j in 0..w {
             // 文字が # の時に前後左右のいずれかが # なら塗り潰せる。
-            if *si == '#' {
-                
+            let mut is_ok = false;
+            if s[i][j] == '#' {
+                // 左
+                if j > 0 && s[i][j-1] == '#' {
+                    is_ok = true;
+                }
+                // 右
+                if j < w-1 && s[i][j+1] == '#' {
+                    is_ok = true;
+                }
+                // 上
+                if i > 0 && s[i-1][j] == '#' {
+                    is_ok = true;
+                }
+                if i < h-1 && s[i+1][j] == '#' {
+                    is_ok = true;
+                }
 
+                // # の周囲に # がなければ、終了
+                if !is_ok {
+                    println!("No");
+                    return;
+                }
             }
         }
     }
 
-    println!();
+    println!("Yes");
 }
