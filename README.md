@@ -167,6 +167,15 @@ let popped_tail = d.pop_back().unwrap();
 let ans = ans.into_iter().collect::<String>();
 ```
 
+## usize の数字を集めてスペースでつなぎ、Stringにする。
+```
+let ans: String = tmp_vec
+                                .into_iter()
+                                .map(|x| x.to_string())
+                                .join(" ");
+```
+
+
 ## パスカルの三角形
 ```
     // パスカルの三角形をテーブルとして作る
