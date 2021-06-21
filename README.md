@@ -119,8 +119,7 @@ https://github.com/hatoo/competitive-rust-snippets/blob/master/src/binary_search
 ## 最小公倍数、最大公約数
 ```
 // ユークリッドの互助法による最大公約数
-#[allow(non_snake_case)]
-fn GCD(m:i64, n:i64) -> i64 {
+fn gcd(m:usize, n:usize) -> usize {
     // 再帰関数で実装する。
     // ベースケース
     if m % n == 0 {
@@ -128,15 +127,16 @@ fn GCD(m:i64, n:i64) -> i64 {
     }
 
     // 再帰呼び出し
-    GCD(n, m % n)
+    gcd(n, m % n)
 }
 
 // 最小公倍数
 #[allow(non_snake_case)]
-fn LCM(m:i64, n:i64) -> i64 {
+fn lcm(m:usize, n:usize) -> usize {
     let u = max(m, n);
     let l = min(m, n);
-    u * l / GCD(u, l)
+
+    u * l / gcd(u, l)
 }
 ```
 
