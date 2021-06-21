@@ -10,8 +10,16 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        
+        n: usize,
+        s: [String; n],
     }
 
-    println!();
+    let mut set = HashSet::new();
+
+    for i in 0..n {
+        if !set.contains(&s[i]) {
+            set.insert(&s[i]);
+            println!("{}", i+1);
+        }
+    }
 }
