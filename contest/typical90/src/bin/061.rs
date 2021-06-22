@@ -10,8 +10,22 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        
+        q: usize,
+        tx: [[usize; 2]; q],
     }
 
-    println!();
+    let mut d = std::collections::VecDeque::new();
+
+    for i in 0..q {
+        let t = tx[i][0];
+        let x = tx[i][1];
+
+        if t == 1 {
+            d.push_front(x);
+        } else if t == 2 {
+            d.push_back(x);
+        } else {
+            println!("{}", d[x-1]);
+        }
+    }
 }
