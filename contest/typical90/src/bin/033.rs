@@ -10,8 +10,17 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        
+        mut h: usize,
+        mut w: usize,
     }
 
-    println!();
+    let ans:usize;
+
+    if h == 1 || w == 1 {
+        ans = h * w;
+    } else {
+        ans = ((h + 1) / 2) * ((w + 1) / 2);
+    }
+
+    println!("{}", ans);
 }
