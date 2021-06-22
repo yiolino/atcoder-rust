@@ -282,3 +282,27 @@ fn is_prime(n: i64) -> bool {
     true
 }
 ```
+
+
+## combination
+```
+use itertools::Itertools;
+
+// nPr (n = 3, r = 2)
+println!("Permutation.");
+for perm in (0..3).permutations(2) {
+    println!("{:?}", perm);
+}
+
+// nCr (n = 3, r = 2)
+println!("\nCombination.");
+for perm in (0..3).combinations(2) {
+    println!("{:?}", perm);
+}
+
+// nHr (n = 3, r = 2)
+println!("\nCombination with replacement.");
+for perm in (0..3).combinations_with_replacement(2) {
+    println!("{:?}", perm);
+}
+```
