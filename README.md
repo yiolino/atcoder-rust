@@ -306,3 +306,17 @@ for perm in (0..3).combinations_with_replacement(2) {
     println!("{:?}", perm);
 }
 ```
+
+
+## 文字列の置換
+```
+    let s: &str = "foo foo foo";
+    assert_eq!("faa faa faa", s.replace("o", "a"));
+    assert_eq!("fee fee foo", s.replacen("o", "e", 4));
+```
+
+## Stringのスライスを行う
+https://qiita.com/aflc/items/f2be832f9612064b12c6
+```
+"あいう".chars().collect::<Vec<char>>();
+```
