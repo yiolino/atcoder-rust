@@ -10,8 +10,19 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        
+        n: usize,
+        mut a: [usize; n],
+        mut b: [usize; n],
     }
 
-    println!();
+    a.sort();
+    b.sort();
+
+    let mut ans = 0;
+
+    for i in 0..n {
+        ans += (a[i] as i64 - b[i] as i64).abs();
+    }
+
+    println!("{}", ans);
 }
