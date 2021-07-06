@@ -10,8 +10,20 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        
+        a: i64,
+        b: u32,
+        c: i64,
     }
 
-    println!();
+    let res = c.pow(b) - a;
+
+    let ans: &str;
+
+    if res > 0 {
+        ans = "Yes";
+    } else {
+        ans = "No";
+    }
+
+    println!("{}", ans);
 }
