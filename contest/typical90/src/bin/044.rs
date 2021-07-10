@@ -33,6 +33,7 @@ fn main() {
         
         } else if t == 2 {
             shift += 1;
+            shift %= n;
 
         } else {
             let idx = (x - 1 - shift + n) % n;
