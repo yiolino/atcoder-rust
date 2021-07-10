@@ -131,7 +131,6 @@ fn gcd(m:usize, n:usize) -> usize {
 }
 
 // 最小公倍数
-#[allow(non_snake_case)]
 fn lcm(m:usize, n:usize) -> usize {
     let u = max(m, n);
     let l = min(m, n);
