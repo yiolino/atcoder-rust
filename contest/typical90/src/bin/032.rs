@@ -16,52 +16,51 @@ fn main() {
         xy: [[usize; 2]; m],
     }
 
-    let mut kenaku = vec![vec![false; 12]; 12];
+    // 仲の悪い選手同士の対応表を作る
+    let mut kenaku = vec![vec![false; n]; n];
     for i in 0..m {
-        let xi = xy[i][0] - 1;
+        let xi = xy[i][0] - 1; // indexは0始まりなので引いておく
         let yi = xy[i][1] - 1;
 
         kenaku[xi][yi] = true;
         kenaku[yi][xi] = true;
     }
 
-
     let mut ans = std::usize::MAX;
 
-    // nの順列を作るためのvec
-    let mut vec = vec![];
+    let mut pvec = vec![];  // permutation用の配列
     for i in 0..n {
-        vec.push(i);
+        pvec.push(i);
     }
 
     loop {
-        let mut flag = true;
-        let mut sum: usize = 0;
+        let mut flag = true; // 仲の悪い選手同士が隣あうパターンは数えない
+        let mut sum = 0;
 
         for i in 0..n-1 {
-            if kenaku[vec[i]][vec[i+1]] == true {
+            if kenaku[pvec[i]][pvec[i+1]] {
                 flag = false;
             }
         }
 
         for i in 0..n {
-            sum += a[vec[i]][i];
+            sum += a[pvec[i]][i];
         }
 
         if flag {
             ans = ans.min(sum);
         }
 
-        if !vec.next_permutation() {
+        if !pvec.next_permutation() {
             break;
         }
     }
-
 
     if ans == std::usize::MAX {
         println!("-1");
         return;
     }
+
 
     println!("{}", ans);
 }
