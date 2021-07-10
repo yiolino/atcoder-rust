@@ -10,13 +10,8 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        n: usize,
-        q: usize,
-        a: [usize; n],
-        txy: [[usize; 3]; q],
+        
     }
-
-    
 
     println!();
 }

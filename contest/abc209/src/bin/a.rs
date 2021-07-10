@@ -10,13 +10,16 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        n: usize,
-        q: usize,
-        a: [usize; n],
-        txy: [[usize; 3]; q],
+        a: usize,
+        b: usize,
     }
 
-    
+    if a > b {
+        print!("0");
+        return;
+    }
 
-    println!();
+    let ans = b - a + 1;
+
+    println!("{}", ans);
 }

@@ -11,12 +11,23 @@ use itertools::Itertools;
 fn main() {
     input!{
         n: usize,
-        q: usize,
-        a: [usize; n],
-        txy: [[usize; 3]; q],
+        x: usize,
+        a: [usize; n],   
     }
 
-    
+    let mut sum = 0;
 
-    println!();
+    for i in 0..n {
+        if i % 2 == 0 {
+            sum += a[i];
+        } else {
+            sum += a[i] - 1;
+        }
+    }
+
+    if sum <= x {
+        println!("Yes");
+    } else {
+        println!("No");
+    }
 }

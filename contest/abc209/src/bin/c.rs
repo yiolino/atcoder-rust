@@ -10,13 +10,19 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        n: usize,
-        q: usize,
-        a: [usize; n],
-        txy: [[usize; 3]; q],
+        n: i64,
+        mut c: [i64; n],
     }
 
-    
+    let waru = 1_000_000_000 + 7;
 
-    println!();
+    c.sort();
+    
+    let mut ans = 1;
+    for i in 0..n {
+        ans *= c[i as usize] - i;
+        ans %= waru;
+    }
+
+    println!("{}", ans);
 }
