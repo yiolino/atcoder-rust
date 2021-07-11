@@ -10,8 +10,29 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        
+        n: usize,
+        k: usize,
     }
 
-    println!();
+    let mut vec = vec![];
+
+    for _ in 0..n {
+        input!{
+            a: usize,
+            b: usize,
+        }
+
+        vec.push(b);
+        vec.push(a - b);
+    }
+
+    vec.sort();
+    vec.reverse();
+
+    let mut ans = 0;
+    for i in 0..k {
+        ans += vec[i];
+    }
+
+    println!("{}", ans);
 }
