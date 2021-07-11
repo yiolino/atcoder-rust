@@ -10,8 +10,22 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        
+        n: usize,
+        l: usize,
     }
 
-    println!();
+    let mut dp = vec![0; n+1];
+
+    dp[0] = 1;
+
+    for i in 1..=n {
+        if i < l {
+            dp[i] = dp[i - 1];
+        } else {
+            dp[i] = dp[i - 1] + dp[i - l];
+            dp[i] %= 1_000_000_000 + 7;
+        }
+    }
+
+    println!("{}", dp[n]);
 }
