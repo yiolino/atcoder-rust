@@ -120,6 +120,7 @@ https://github.com/hatoo/competitive-rust-snippets/blob/master/src/binary_search
 ```
 use std::cmp::Ordering;
 /// Equivalent to std::lowerbound and std::upperbound in c++
+/// 添字ではなく、境界としての添字を返すので注意！
 pub trait BinarySearch<T> {
     fn lower_bound(&self, x: &T) -> usize;
     fn upper_bound(&self, x: &T) -> usize;

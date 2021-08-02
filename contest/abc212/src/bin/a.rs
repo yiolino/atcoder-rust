@@ -10,11 +10,16 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        l: usize,
-        r: usize,
+        a: usize,
+        b: usize,
     }
 
-    
+    if a > 0 && b > 0 {
+        println!("Alloy");
+    } else if a > 0 && b == 0 {
+        println!("Gold");
+    } else {
+        println!("Silver");
+    }
 
-    println!();
 }

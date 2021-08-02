@@ -10,11 +10,8 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        l: usize,
-        r: usize,
+        
     }
-
-    
 
     println!();
 }
