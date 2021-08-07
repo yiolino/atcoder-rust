@@ -238,7 +238,7 @@ let ans: String = tmp_vec
     }
 ```
 
-## mod_pow
+## mod_pow, mod_inv
 https://qiita.com/drken/items/3b4fdf0a78e7a138cd9a#4-累乗-an
 ```
 // mod_powの実装。型がprimitiveなら何でも取れるようにする。
@@ -258,6 +258,9 @@ where
 
     res
 }
+
+// 逆元の計算
+fn mod_inf<T>()
 ```
 
 ## 2の累乗数の判定
