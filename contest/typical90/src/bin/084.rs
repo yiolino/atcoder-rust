@@ -10,8 +10,34 @@ use itertools::Itertools;
 #[fastout]
 fn main() {
     input!{
-        
+        n: usize,
+        s: Chars,
     }
 
-    println!();
+    let mut vec = vec![];
+    let mut cnt = 1;
+
+    for i in 0..n-1 {
+        if s[i+1] == s[i] {
+            cnt += 1;
+        } else {
+            vec.push(cnt);
+            cnt = 1;
+        }
+    }
+    vec.push(cnt);
+
+
+    let mut ans = sum_tosa(n);
+
+    for v in vec {
+        ans -= sum_tosa(v);
+    }
+
+    println!("{}", ans);
+}
+
+
+fn sum_tosa(n: usize) -> usize {
+    n * (n + 1) / 2
 }
