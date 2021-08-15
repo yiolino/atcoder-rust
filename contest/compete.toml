@@ -30,6 +30,8 @@ use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
 use std::cmp::{max, min, Reverse};
 #[allow(unused_imports)]
 use itertools::Itertools;
+#[allow(unused_imports)]
+use petgraph::unionfind::UnionFind;
 
 #[fastout]
 fn main() {
