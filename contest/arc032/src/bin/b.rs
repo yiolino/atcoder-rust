@@ -1,63 +1,56 @@
 #[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars, marker::Usize1};
+use proconio::{input, fastout, marker::Chars};
 #[allow(unused_imports)]
-use std::collections::{HashSet, HashMap, BTreeSet, VecDeque};
+use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
 #[allow(unused_imports)]
-use std::cmp::{max, min};
+use std::cmp::{max, min, Reverse};
 #[allow(unused_imports)]
 use itertools::Itertools;
 
 #[fastout]
 fn main() {
     input!{
-        h: usize,
-        w: usize,
-        q: usize,
+        n: usize,
+        m: usize,
     }
 
-    let pos = |x: usize, y: usize| x * w + y; // h*w のマス目を1次元に展開した時の、(x, y)のposition
-    let mut red = vec![vec![false; w]; h];  // 赤く塗られたマス目のboolean. falseで初期化.
-    let mut uf = UnionFind::new(h * w);
+    // UnionFind構造体を初期化
+    let mut uf = UnionFind::new(n);
 
-    for _ in 0..q {
-        input!(op: u8);
+    for _ in 0..m {
+        input!{
+            a: usize,
+            b: usize,
+        }
 
-        if op == 1 {
-            input!(mut x: usize, mut y: usize);
-            x -= 1;
-            y -= 1;
-            red[x][y] = true;
-            for &(dx, dy) in [(1, 0), (-1, 0), (0, 1), (0, -1)].iter() {
-                let p = (x as i64 + dx) as usize;
-                let q = (y as i64 + dy) as usize;
-                if p < h && q < w && red[p][q] {
-                    uf.unite(pos(x, y), pos(p, q));
-                }
-            }
-        } else {
-            input!(x: Usize1, y: Usize1, z: Usize1, w: Usize1);
-            let ans = if red[x][y] && uf.is_same(pos(x, y), pos(z, w)) {
-                "Yes"
-            } else {
-                "No"
-            };
+        // 交差点aと交差点bは繋がっているので、併合する。
+        uf.unite(a - 1, b - 1);
+    }
 
-            println!("{}", ans);
+
+    let mut cnt = 0;
+    for i in 0..n {
+        if uf.unite(0, i) {
+            cnt += 1;
         }
     }
+
+
+    println!("{}", cnt);
 }
 
 
 
 //---------- begin union_find by @nakamurus ----------
 struct UnionFind {
-    par: Vec<usize>,  // 各頂点の親頂点の番号を表す
+    par: Vec<usize>,  // 各頂点の親頂点の番号を表す。
     siz: Vec<usize>,  // 各頂点の属する根付き木の頂点数を表す
 }
 
 #[allow(unused)]
 impl UnionFind {
     fn new(n: usize) -> Self {
+        // 初期値は自身が自身の根出る（各木の頂点数は1）
         UnionFind {
             par: (0..n).collect(),
             siz: vec![1; n],
@@ -81,7 +74,7 @@ impl UnionFind {
     }
 
 
-    // xの木とyの木を併合する
+    // xの木とyの木を併合する. 関数の戻り値はboolであることに注意
     fn unite(&mut self, mut x: usize, mut y: usize) -> bool {
         // x, y それぞれ根まで移動する
         x = self.find_root(x);
@@ -110,6 +103,6 @@ impl UnionFind {
         let root = self.find_root(x);
         self.siz[root]
     }
-
+    
 }
 //---------- end union_find ----------

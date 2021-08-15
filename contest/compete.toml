@@ -23,7 +23,7 @@ test-suite = "{{ manifest_dir }}/testcases/{{ bin_alias }}.yml"
 [template]
 src = '''
 #[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars};
+use proconio::{input, fastout, marker::Chars, marker::Usize1};
 #[allow(unused_imports)]
 use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
 #[allow(unused_imports)]
