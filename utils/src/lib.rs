@@ -1,3 +1,6 @@
+mod bfs;
+
+
 #[cfg(test)]
 mod tests {
     #[test]

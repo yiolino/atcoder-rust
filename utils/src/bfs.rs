@@ -58,7 +58,7 @@ mod tests {
 
     // #[test]の付いた関数はcargo testとしたときに実行される
     #[test]
-    fn make_graph() -> Vec<Vec<usize> {
+    fn make_graph() -> Vec<Vec<usize>> {
         // 頂点数と辺数
         let n = 8; let m = 13;
 
