@@ -2,4 +2,4 @@ contest/target/debug/*
 contest/*/target
 **/.DS_Store
 
-AOJ/*/target
+examples/target

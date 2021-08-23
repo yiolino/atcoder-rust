@@ -1,0 +1,28 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      6
+      CATAGAACGACTATT
+      TA
+      GCGGCTTTTTGAAGCGT
+      TACCTTGATCA
+      GGCGTGCATAG
+      T
+    out: |
+      AATAGTCGTTCTATG
+      TA
+      ACGCTTCAAAAAGCCGC
+      TGATCAAGGTA
+      CTATGCACGCC
+      A
+
+extend:
+  - type: Text
+    path: "./a"
+    in: /in/*.txt
+    out: /out/*.txt
