@@ -11,6 +11,7 @@ use petgraph::unionfind::UnionFind;
 
 #[fastout]
 fn main() {
+    // https://wagtail.cds.tohoku.ac.jp/coda/python/p-8-function-part2-sup-seq-alignment.html
     input!{
         s: Chars,
         t: Chars,
@@ -21,8 +22,8 @@ fn main() {
 
     let gap_penalty = -5;
 
-    let mut h = vec![vec![0; m+1]; n+1];
-    let mut l = vec![vec![0; m+1]; n+1];
+    let mut h = vec![vec![0; m+1]; n+1];  // スコアの行列
+    let mut l = vec![vec![0; m+1]; n+1]; // アライメントを出力するためのメモ行列
 
     h[0][0] = 0;
     for j in 1..m+1 {
@@ -90,5 +91,8 @@ fn main() {
     println!("{}", ans_s.into_iter().collect::<String>());
     println!("{}", ans_t.into_iter().collect::<String>());
 }
+
+
+
 
 

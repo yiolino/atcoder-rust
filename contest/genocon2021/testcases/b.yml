@@ -1,9 +1,16 @@
 ---
 type: Batch
-timelimit: ~
+timelimit: 2s
 match: Lines
 
-cases: []
+cases:
+  - name: sample1
+    in: |
+      AGTTGAATTT
+      GTCGGACTTT
+    out: |
+      AGT-TGAATTT
+      -GTCGGACTTT
 
 extend:
   - type: Text
