@@ -48,8 +48,8 @@ fn main() {
             } else {
                 -3
             };
+
             score[1] = h[i-1][j-1] + tmp_s;
-            
             score[2] = h[i-1][j] + gap_penalty;
 
             h[i][j] = *score.iter().max().unwrap();

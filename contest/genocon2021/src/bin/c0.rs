@@ -13,48 +13,26 @@ use petgraph::unionfind::UnionFind;
 fn main() {
     input!{
         m: usize,
+        mut s0:  Chars,
     }
 
-    let mut score = std::usize::MAX; 
-    let mut ans_seq_vec= vec![vec!['X']; m];
+    let mut seq_vec = vec![vec!['X']; m];  // m個の配列を格納しておくvector
+    seq_vec[0] = s0;
 
-    let mut seq_vec = vec![];  // m個の配列を格納しておくvector
-    for _ in 0..m {
-        input!(si: Chars);
-        seq_vec.push(si);
+    for i in 0..m-1 {
+        input!(mut si: Chars);
+        let tmp_seq = pairwise(&seq_vec[0], &si);
+        seq_vec[0] = tmp_seq.0;
+        seq_vec[i+1] = tmp_seq.1;
     }
 
-
-    for k in 0..m {
-        let mut tmp_seq_vec = seq_vec.clone();
-
-        for i in 0..m {
-            if i == k {
-                continue;
-            }
-            let tmp_seq = pairwise(&tmp_seq_vec[k], &seq_vec[i]);
-            tmp_seq_vec[k] = tmp_seq.0;
-            tmp_seq_vec[i] = tmp_seq.1;
-        }
-
-        for i in 0..m {
-            if i == k {
-                continue;
-            }
-            tmp_seq_vec[i] = pairwise_oneside(&tmp_seq_vec[k], &seq_vec[i]);
-        }
-
-        let tmp_score = calc_ct(&tmp_seq_vec);
-
-        if tmp_score < score {
-            score = tmp_score;
-            ans_seq_vec = tmp_seq_vec.clone();
-        }
+    for i in 0..m-1 {
+        seq_vec[i+1] = pairwise_oneside(&seq_vec[0], &seq_vec[i+1]);
     }
 
 
     for i in 0..m {
-        println!("{}", ans_seq_vec[i].iter().collect::<String>());
+        println!("{}", seq_vec[i].iter().collect::<String>());
     }
 }
 
@@ -92,8 +70,8 @@ fn pairwise(s: &Vec<char>, t: &Vec<char>) -> (Vec<char>, Vec<char>) {
             } else {
                 -1
             };
-            score[1] = h[i-1][j-1] + tmp_s;
 
+            score[1] = h[i-1][j-1] + tmp_s;
             score[2] = h[i-1][j] + gap_penalty;
 
             h[i][j] = *score.iter().max().unwrap();
@@ -169,8 +147,8 @@ fn pairwise_oneside(s: &Vec<char>, t: &Vec<char>) -> Vec<char> {
             } else {
                 -1
             };
-            score[1] = h[i-1][j-1] + tmp_s;
 
+            score[1] = h[i-1][j-1] + tmp_s;
             score[2] = h[i-1][j] + gap_penalty;
 
             h[i][j] = *score.iter().max().unwrap();
@@ -209,35 +187,4 @@ fn pairwise_oneside(s: &Vec<char>, t: &Vec<char>) -> Vec<char> {
     ans_t.reverse();
 
     ans_t
-}
-
-
-fn calc_ct(seq_vec: &Vec<Vec<char>>) -> usize {
-    let n = seq_vec.len();
-    let m = seq_vec[0].len();
-
-    let mut ans = 0;
-    for i in 0..m {
-        let mut score = vec![0; 5];  // 各塩基が何回登場するかのカウント
-
-        for j in 0..n {
-            match seq_vec[j][i] {
-                'A' => score[0] += 1,
-                'T' => score[1] += 1,
-                'G' => score[2] += 1,
-                'C' => score[3] += 1,
-                _ => score[4] += 1,
-            };
-        }
-
-        score.sort();
-        let s:usize = score.into_iter()
-                            .enumerate()
-                            .filter(|(i, _)| i != &4)
-                            .map(|(_, s)| s)
-                            .sum();
-        ans += s;
-    }
-
-    ans
 }
