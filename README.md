@@ -523,3 +523,19 @@ impl UnionFind {
 }
 //---------- end union_find ----------
 ```
+
+## 2つの文字列の辞書順
+```
+    input!{
+        s: Chars,
+        t: Chars,
+    }
+
+    let ans = if s < t {
+        "Yes"
+    } else {
+        "No"
+    };
+
+    println!("{}", ans);
+```

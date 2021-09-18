@@ -1,0 +1,32 @@
+#[allow(unused_imports)]
+use proconio::{input, fastout, marker::Chars, marker::Usize1};
+#[allow(unused_imports)]
+use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
+#[allow(unused_imports)]
+use std::cmp::{max, min, Reverse};
+#[allow(unused_imports)]
+use itertools::Itertools;
+#[allow(unused_imports)]
+use petgraph::unionfind::UnionFind;
+
+#[fastout]
+fn main() {
+    input!{
+        x: usize,
+    }
+
+    let mut ans = 0;
+
+    if x < 40 {
+        ans = 40 - x;
+    } else if 40 <= x && x < 70 {
+        ans = 70 - x;
+    } else if 70 <= x && x < 90 {
+        ans = 90 - x;
+    } else {
+        println!{"expert"};
+        return;
+    }
+
+    println!("{}", ans);
+}
