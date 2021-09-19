@@ -37,7 +37,7 @@ fn main() {
     for si in s {
         let ans = si
                         .into_iter()
-                        .map(|i| (inv[i as usize] as u8 + b'a') as char)
+                        .map(|i| x[i as usize] as char)
                         .collect::<String>();
         
         println!("{}", ans);
