@@ -12,8 +12,12 @@ use petgraph::unionfind::UnionFind;
 #[fastout]
 fn main() {
     input!{
-        
+        s: [String; 3],
     }
 
-    println!();
+    for si in vec!["ABC", "ARC", "AGC", "AHC"] {
+        if !s.contains(&si.to_string()) {
+            println!("{}", si);
+        }
+    }
 }
