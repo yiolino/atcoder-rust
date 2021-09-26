@@ -12,8 +12,21 @@ use petgraph::unionfind::UnionFind;
 #[fastout]
 fn main() {
     input!{
-        
+        n: usize,
+        p: [usize; n],
     }
 
-    println!();
+    let mut vec = vec![1_000_000_usize; n];
+
+    for (i, mut pi) in p.into_iter().enumerate() {
+        pi -= 1;
+        vec[pi] = i+1;
+    }
+
+    let ans: String = vec
+                    .into_iter()
+                    .map(|x| x.to_string())
+                    .join(" ");
+
+    println!("{}", ans);
 }
