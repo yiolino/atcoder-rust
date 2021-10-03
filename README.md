@@ -401,6 +401,8 @@ https://qiita.com/aflc/items/f2be832f9612064b12c6
 順列の生成
 https://github.com/bluss/permutohedron/blob/master/src/lexical.rs
 
+追記 : [superslice](https://docs.rs/superslice/1.0.0/x86_64-apple-darwin/superslice/trait.Ext.html#tymethod.next_permutation) というクレートもあった。
+
 ```
 // T が Vector の場合、昇順にsortしてある必要があるので注意
 pub trait LexicalPermutation {

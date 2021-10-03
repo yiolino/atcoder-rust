@@ -32,6 +32,8 @@ use std::cmp::{max, min, Reverse};
 use itertools::Itertools;
 #[allow(unused_imports)]
 use petgraph::unionfind::UnionFind;
+#[allow(unused_imports)]
+use superslice::Ext;
 
 #[fastout]
 fn main() {
