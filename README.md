@@ -398,9 +398,11 @@ https://qiita.com/aflc/items/f2be832f9612064b12c6
 
 
 ## next_permutation, prev_permutation
+順列の生成
 https://github.com/bluss/permutohedron/blob/master/src/lexical.rs
 
 ```
+// T が Vector の場合、昇順にsortしてある必要があるので注意
 pub trait LexicalPermutation {
     /// Return `true` if the slice was permuted, `false` if it is already
     /// at the last ordered permutation.

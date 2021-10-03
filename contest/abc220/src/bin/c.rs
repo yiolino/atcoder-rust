@@ -12,8 +12,31 @@ use petgraph::unionfind::UnionFind;
 #[fastout]
 fn main() {
     input!{
-        
+        n: i64,
+        a: [i64; n],
+        x: i64,
     }
 
-    println!();
+    let sum_a: i64 = a.iter().sum();
+
+    let cnt  = x / sum_a;
+
+    let mut ans = n * cnt;
+
+    let xx = x % sum_a;
+    // if xx == 0 {
+    //     println!("{}", ans+1);
+    //     return;
+    // }
+
+    let mut sum = 0;
+
+    for ai in a.iter() {
+        sum += ai;
+        ans += 1;
+        if sum > xx {
+            println!("{}", ans);
+            return;
+        }
+    }
 }
