@@ -1,32 +1,21 @@
 #[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars};
+use proconio::{input, fastout, marker::Chars, marker::Usize1, marker::Bytes};
 #[allow(unused_imports)]
-use std::collections::{HashSet, HashMap, BTreeSet};
+use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
 #[allow(unused_imports)]
-use std::cmp::{max, min};
+use std::cmp::{max, min, Reverse};
+#[allow(unused_imports)]
+use itertools::Itertools;
+#[allow(unused_imports)]
+use petgraph::unionfind::UnionFind;
+#[allow(unused_imports)]
+use superslice::Ext;
 
 #[fastout]
-#[allow(non_snake_case)]
 fn main() {
     input!{
-        N: usize,
-        K: usize,
-        h: [i64; N],
+        
     }
 
-    let mut dp = vec![std::i64::MAX; N];
-
-    dp[0] = 0;
-
-    for i in 0..N {
-        for j in 1..=K {
-            if i + j > N - 1 {
-                continue;
-            }
-            dp[i + j] = dp[i + j].min(dp[i] + (h[i] - h[i + j]).abs());
-        }
-    }
-
-
-    println!("{}", dp[N - 1]);
+    println!();
 }
