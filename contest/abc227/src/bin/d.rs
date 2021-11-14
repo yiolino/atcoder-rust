@@ -14,8 +14,30 @@ use superslice::Ext;
 #[fastout]
 fn main() {
     input!{
-        
+        n: usize,
+        k: usize,
+        a: [usize; n],
     }
 
-    println!();
+    // プロジェクトをP個以上作れるか？という問いに落とし込む
+    let mut upper = 1e18 as usize;
+    let mut lower = 0;
+
+    while upper - lower > 1 {
+        let mid = (upper + lower) / 2;
+
+        // midがプロジェクトの個数だとする。
+        let mut sum = 0;
+        for ai in a.iter() {
+            sum += min(*ai, mid);
+        }
+
+        if sum >= mid * k {
+            lower = mid;
+        } else {
+            upper = mid;
+        }
+    }
+
+    println!("{}", lower);
 }
