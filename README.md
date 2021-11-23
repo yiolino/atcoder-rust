@@ -190,6 +190,9 @@ impl<T: Ord> BinarySearch<T> for [T] {
 
 
 ## 最小公倍数、最大公約数
+
+- `num::integer::gcd(x, y)` を用いた方が良い（ゼロ除算など回避できる）
+
 ```
 // ユークリッドの互助法による最大公約数
 fn gcd(m:usize, n:usize) -> usize {
