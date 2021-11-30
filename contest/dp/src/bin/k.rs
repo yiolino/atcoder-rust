@@ -11,11 +11,30 @@ use petgraph::unionfind::UnionFind;
 #[allow(unused_imports)]
 use superslice::Ext;
 
-#[fastout]
 fn main() {
     input!{
-        
+        n: usize,
+        k: usize,
+        a: [usize; n],
     }
 
-    println!();
+    // dp[i] := 残りi個の時、先手が勝つならtrue、先手が引けないならfalse
+    let mut dp = vec![false; k+1];
+    
+    for i in 1..=k {
+        for j in 0..n {
+            let jmp = i as i32 - a[j] as i32;
+            if jmp >= 0 && dp[jmp as usize] == false {
+                dp[i] = true;
+            }
+        }
+    }
+
+    let ans = if dp[k] {
+        "First"
+    } else {
+        "Second"
+    };
+    
+    println!("{}", ans);
 }
