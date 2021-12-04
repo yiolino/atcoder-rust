@@ -11,6 +11,7 @@ use petgraph::unionfind::UnionFind;
 #[allow(unused_imports)]
 use superslice::Ext;
 
+#[fastout]
 fn main() {
     input!{
         
@@ -18,4 +19,3 @@ fn main() {
 
     println!();
 }
-  

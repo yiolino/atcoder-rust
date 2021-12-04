@@ -13,9 +13,18 @@ use superslice::Ext;
 
 fn main() {
     input!{
-        
+        n: usize,
     }
 
-    println!();
+    if n < 10 {
+        print!("AGC00");
+        println!("{}", n);
+    } else if n < 42 {
+        print!("AGC0");
+        println!("{}", n);
+    } else {
+        print!("AGC0");
+        println!("{}", n+1);
+    }
+
 }
-  
