@@ -11,11 +11,27 @@ use petgraph::unionfind::UnionFind;
 #[allow(unused_imports)]
 use superslice::Ext;
 
-#[fastout]
 fn main() {
     input!{
-        
+        n: usize,
+        d: i64,
+        mut lr: [(i64, i64); n],
     }
 
-    println!();
+    lr.sort_by_key(|s| s.1); // 右端の座標でsort
+
+    let mut ans = 0;
+    let mut x = std::i64::MIN;
+
+    for i in 0..n {
+        let l  = lr[i].0;
+        let r = lr[i].1;
+
+        if x + d - 1 < l {
+            x = r;
+            ans += 1;
+        }
+    }
+
+    println!("{}", ans);
 }
