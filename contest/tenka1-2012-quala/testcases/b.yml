@@ -1,0 +1,27 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      X Y Z
+    out: |
+      X,Y,Z
+  - name: sample2
+    in: |
+      A  B, C
+    out: |
+      A,B,,C
+  - name: sample3
+    in: |
+      QWERTY
+    out: |
+      QWERTY
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt

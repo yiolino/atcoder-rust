@@ -573,3 +573,16 @@ impl UnionFind {
 ## しゃくとり法
 [このサイト](https://scrapbox.io/pocala-kyopro/しゃくとり法) がわかりやすかった。
 
+## スペース含めた文字列を読み込み、スペースでスプリット
+```
+fn main() {
+    let mut s = String::new();
+    std::io::stdin().read_line(&mut s).ok();
+
+    let ans = s.split_ascii_whitespace().join(",");
+
+
+    println!("{}", ans);
+}
+```
+
