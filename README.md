@@ -569,3 +569,7 @@ impl UnionFind {
 
     println!("{}", ans);
 ```
+
+## しゃくとり法
+[このサイト](https://scrapbox.io/pocala-kyopro/しゃくとり法) がわかりやすかった。
+
