@@ -1,6 +1,7 @@
-/// 幅優先探索
+///------------------------ DFS ------------------------
 struct DFS {
     seen: Vec<i64>,  // 各頂点の訪問状態を格納するvector
+    graph: Vec<Vec<usize>>,
 }
 
 
@@ -18,10 +19,27 @@ impl DFS {
 
     /// 連結成分のカウント
     /// けんちょんQiita参考
-    fn count_connected(&mut self, )
+    fn dfs(&mut self, s: usize) {
+        self.seen[s] = 1;  // sを訪問済みにする。
+
+        for i in 0..self.graph[s].len() {
+            let next_v = self.graph[s][i];
+            
+            if self.seen[next_v] != -1 {
+                continue;
+            }
+
+            self.dfs(next_v);
+
+        }
+
+    }
+
+
+
 
     
-    /// 二部グラフ判定
+    /// 二部グラフ判定（未完成なう）
     /// けんちょん本 p.233を参照
     fn is_bipartite＿graph(&mut self, graph: &Vec<Vec<usize>>, s: usize) {
         self.seen[s] = 0;  // 初期条件： 頂点sを初期頂点とする。

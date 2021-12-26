@@ -1,4 +1,6 @@
 mod bfs;
+mod dfs;
+
 
 
 #[cfg(test)]
