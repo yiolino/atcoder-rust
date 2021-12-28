@@ -1,0 +1,54 @@
+---
+type: Batch
+timelimit: 5s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      9
+      4
+      hELLO
+      hELL
+      EGG
+      ODD
+    out: |
+      773407734
+  - name: sample2
+    in: |
+      5
+      3
+      ZO
+      OIO
+      IOIO
+    out: |
+      0.201
+  - name: sample3
+    in: |
+      25
+      10
+      BED
+      BEL
+      BIG
+      DIE
+      DIG
+      DOG
+      OLD
+      shE
+      qED
+      ZOO
+    out: |
+      918910900738345310070038
+  - name: sample4
+    in: |
+      5
+      1
+      hELLO
+    out: |
+      0.7734
+
+extend:
+  - type: Text
+    path: "./d"
+    in: /in/*.txt
+    out: /out/*.txt
