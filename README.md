@@ -544,3 +544,21 @@ fn main() {
 }
 ```
 
+
+## std::slice::windowsは、「前の値も含めて for ループを回したい」というユースケースで使うことができる
+```
+// https://qiita.com/hystcs/items/d33e77084277cdba8052
+
+（例）
+let v = vec![1, 2, 3];
+for w in v.windows(2) {
+    let (prev, next) = (w[0], w[1]);
+    println!("{} {}", prev, next)
+}
+// 1 2
+// 2 3
+
+（例）
+ans += t.windows(2).filter(|t| t[0] != t[1]).count(); // 前後で値が異なるときにカウント
+```
+
