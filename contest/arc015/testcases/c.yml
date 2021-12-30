@@ -1,0 +1,39 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      4
+      week 7 day
+      day 24 hour
+      hour 60 min
+      min 60 sec
+    out: |
+      1week=604800sec
+  - name: sample2
+    in: |
+      3
+      sic 29 cou
+      gal 493 cou
+      gal 17 sic
+    out: |
+      1gal=493cou
+  - name: sample3
+    in: |
+      5
+      chou 360 shaku
+      jou 100 sun
+      ken 60 sun
+      li 2160 ken
+      li 12960 shaku
+    out: |
+      1li=129600sun
+
+extend:
+  - type: Text
+    path: "./c"
+    in: /in/*.txt
+    out: /out/*.txt
