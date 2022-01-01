@@ -237,7 +237,7 @@ let popped_tail = d.pop_back().unwrap();
 ```
 
 
-## Charcter の vector　を集めてStringにする
+## Charcter の vectorを集めてStringにする
 ```
 let ans = ans.into_iter().collect::<String>();
 ```
