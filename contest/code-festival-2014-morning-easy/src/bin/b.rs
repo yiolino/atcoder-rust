@@ -13,8 +13,23 @@ use superslice::Ext;
 
 fn main() {
     input!{
-        
+        mut n: usize,
     }
 
-    println!();
+    // 0 indexにする
+    n -= 1;
+
+    // 20で割った余りと商を考えれば良い
+    let sho = n / 20;
+    let amari = n % 20;
+
+    let ans: usize;
+    
+    if sho % 2 == 0 {
+        ans = amari;
+    } else {
+        ans = 19 - amari;
+    }
+
+    println!("{}", ans + 1);
 }
