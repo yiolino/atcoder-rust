@@ -138,57 +138,6 @@ let vec:Vec<Vec<i64>> = (0..N).combinations(2).collect();
 ```
 
 
-## 二分探索 upper_bound, lower_bound
-https://github.com/hatoo/competitive-rust-snippets/blob/master/src/binary_search.rs
-```
-use std::cmp::Ordering;
-/// Equivalent to std::lowerbound and std::upperbound in c++
-/// 添字ではなく、境界としての添字を返すので注意！
-pub trait BinarySearch<T> {
-    fn lower_bound(&self, x: &T) -> usize;
-    fn upper_bound(&self, x: &T) -> usize;
-}
-
-impl<T: Ord> BinarySearch<T> for [T] {
-    fn lower_bound(&self, x: &T) -> usize {
-        let mut low = 0;
-        let mut high = self.len();
-
-        while low != high {
-            let mid = (low + high) / 2;
-            match self[mid].cmp(x) {
-                Ordering::Less => {
-                    low = mid + 1;
-                }
-                Ordering::Equal | Ordering::Greater => {
-                    high = mid;
-                }
-            }
-        }
-        low
-    }
-
-    fn upper_bound(&self, x: &T) -> usize {
-        let mut low = 0;
-        let mut high = self.len();
-
-        while low != high {
-            let mid = (low + high) / 2;
-            match self[mid].cmp(x) {
-                Ordering::Less | Ordering::Equal => {
-                    low = mid + 1;
-                }
-                Ordering::Greater => {
-                    high = mid;
-                }
-            }
-        }
-        low
-    }
-}
-```
-
-
 ## 最小公倍数、最大公約数
 
 - `num::integer::gcd(x, y)` を用いた方が良い（ゼロ除算など回避できる）
@@ -562,3 +511,30 @@ for w in v.windows(2) {
 ans += t.windows(2).filter(|t| t[0] != t[1]).count(); // 前後で値が異なるときにカウント
 ```
 
+
+## 座標圧縮
+```
+fn main() {
+    input!{ 
+        _h: usize,
+        _w: usize,
+        p: [(u32, u32)],
+    }
+
+    // 座標圧縮で解く
+    let (mut x, mut y): (Vec<_>, Vec<_>) = p.iter().cloned().unzip();
+
+    x.sort();
+    x.dedup(); // 連続した重複要素を除去
+
+    y.sort();
+    y.dedup();
+
+    // superslice crate の Ext::lowerboundを使う
+    for (a, b) in p {
+        let a = x.lower_bound(&a) + 1;
+        let b = y.lower_bound(&b) + 1;
+        println!("{} {}", a, b);
+    }
+}
+```
