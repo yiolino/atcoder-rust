@@ -1,0 +1,30 @@
+---
+type: Batch
+timelimit: 4s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      3
+      RLU
+    out: |
+      -1 1
+  - name: sample2
+    in: |
+      7
+      RURDRUL
+    out: |
+      0 1
+  - name: sample3
+    in: |
+      25
+      RLRLRLRLRLRLURLRLRLRLRLRL
+    out: |
+      -12 1
+
+extend:
+  - type: Text
+    path: "./c"
+    in: /in/*.txt
+    out: /out/*.txt

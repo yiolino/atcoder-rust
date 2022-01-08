@@ -538,3 +538,11 @@ fn main() {
     }
 }
 ```
+
+## rotate_right
+https://doc.rust-lang.org/std/primitive.slice.html#method.rotate_right
+```
+let mut a = ['a', 'b', 'c', 'd', 'e', 'f'];
+a.rotate_right(2);
+assert_eq!(a, ['e', 'f', 'a', 'b', 'c', 'd']);
+```
