@@ -33,7 +33,7 @@ c.is_uppercase(), c.is_lowercase()... c: char, return: bool
 for (i, c) in s.into_iter().enumerate() {
 ```
 
-&Charsでiterationしたい場合　https://webbibouroku.com/Blog/Article/rust-iter-index
+&Charsでiterationしたい場合 https://webbibouroku.com/Blog/Article/rust-iter-index
 ```
 for (i, val) in (0_i32..).zip(a.iter()) {
     println!("{}: {}", i, val);
@@ -545,4 +545,43 @@ https://doc.rust-lang.org/std/primitive.slice.html#method.rotate_right
 let mut a = ['a', 'b', 'c', 'd', 'e', 'f'];
 a.rotate_right(2);
 assert_eq!(a, ['e', 'f', 'a', 'b', 'c', 'd']);
+```
+
+
+## 2進数変換
+```
+    while k > 0 {
+        if k % 2 == 1 {
+            ans.push(2);
+        } else {
+            ans.push(0);
+        }
+        k /= 2;
+    }
+```
+
+## 優先度付きキュー
+常に最大値 or 最小値を取り出せるデータ構造
+```
+// abc234 D
+// 最小値を取り出す構造にするためには Reverse を用いる
+
+    let mut heap = BinaryHeap::new();
+
+    for i in 0..k {
+        heap.push(Reverse(p[i]));
+    }
+
+    println!("{}", heap.peek().unwrap().0);
+
+    for i in k..n {
+        if heap.peek().unwrap().0 < p[i] {
+            heap.pop();
+            heap.push(Reverse(p[i]));
+            println!("{}", heap.peek().unwrap().0);
+        } else {
+            println!("{}", heap.peek().unwrap().0);
+        }
+    }
+}
 ```
