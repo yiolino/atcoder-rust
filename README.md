@@ -585,3 +585,26 @@ assert_eq!(a, ['e', 'f', 'a', 'b', 'c', 'd']);
     }
 }
 ```
+
+## ゼロ埋めformat
+https://zenn.dev/toga/books/rust-atcoder/viewer/13-format
+2 進法，8 桁（0 埋め）
+```
+println!("{:08b}", 1_u8);
+```
+
+## bit反転
+「!」をつけるとbit反転する
+```
+println!("{:08b} {:08b}", 1_u8, !1_u8);
+// 00000001 11111110
+```
+
+## 2進数にしたときの桁数を求める
+https://zenn.dev/anozon/articles/rust-bit-len
+```
+fn blen(v: i64) -> u32 {
+    64 - v.leading_zeros()
+}
+```
+

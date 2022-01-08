@@ -13,28 +13,31 @@ use superslice::Ext;
 
 fn main() {
     input!{
-        k: usize,
+        mut k: usize,
     }
 
-    let mut keta = 0;
-    let mut kk = k;
-    while kk > 1 {
-        kk /= 2;
-        keta += 1;
-    }
+    // 2進数表記と対応していることを利用する。
 
-    let mut vec = vec![];
+    let mut bit_vec = vec![];
 
-    for i in 0..=keta {
-        if (k >> i & 1) > 0 {
-            vec.push('2');
+    while k > 0 {
+        // 2の余りを見れば最小の桁が0か1かわかる
+        if k % 2 == 1 {
+            bit_vec.push('2');  // この問題では2を入れる
         } else {
-            vec.push('0');
+            bit_vec.push('0');
         }
+
+        // 2で割るとシフトすることとと対応
+        // 次の桁を見る
+        k /= 2;
     }
 
-    vec.reverse();
-    let ans = vec.iter().collect::<String>();
+    bit_vec.reverse();
+    let ans = bit_vec.iter().collect::<String>();
 
     println!("{}", ans);
+
+    println!("{:08b} {:08b}", 1_u8, !1_u8);
 }
+
