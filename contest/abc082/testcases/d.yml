@@ -1,0 +1,48 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      FTFFTFFF
+      4 2
+    out: |
+      Yes
+  - name: sample2
+    in: |
+      FTFFTFFF
+      -2 -2
+    out: |
+      Yes
+  - name: sample3
+    in: |
+      FF
+      1 0
+    out: |
+      No
+  - name: sample4
+    in: |
+      TF
+      1 0
+    out: |
+      No
+  - name: sample5
+    in: |
+      FFTTFF
+      0 0
+    out: |
+      Yes
+  - name: sample6
+    in: |
+      TTTT
+      1 0
+    out: |
+      No
+
+extend:
+  - type: Text
+    path: "./d"
+    in: /in/*.txt
+    out: /out/*.txt
