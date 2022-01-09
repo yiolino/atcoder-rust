@@ -1,0 +1,32 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      rng gorilla apple
+    out: |
+      YES
+  - name: sample2
+    in: |
+      yakiniku unagi sushi
+    out: |
+      NO
+  - name: sample3
+    in: |
+      a a a
+    out: |
+      YES
+  - name: sample4
+    in: |
+      aaaaaaaaab aaaaaaaaaa aaaaaaaaab
+    out: |
+      NO
+
+extend:
+  - type: Text
+    path: "./a"
+    in: /in/*.txt
+    out: /out/*.txt
