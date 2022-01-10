@@ -608,3 +608,8 @@ fn blen(v: i64) -> u32 {
 }
 ```
 
+## 2つの値を入れ替える swap スワップ
+```
+std::mem::swap(&mut a, &mut b);
+```
+
