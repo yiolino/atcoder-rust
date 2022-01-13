@@ -1,0 +1,52 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      2750 628
+    out: |
+      W 5
+  - name: sample2
+    in: |
+      161 8
+    out: |
+      C 0
+  - name: sample3
+    in: |
+      3263 15
+    out: |
+      NNW 1
+  - name: sample4
+    in: |
+      1462 1959
+    out: |
+      SE 12
+  - name: sample5
+    in: |
+      1687 1029
+    out: |
+      SSE 8
+  - name: sample6
+    in: |
+      2587 644
+    out: |
+      WSW 5
+  - name: sample7
+    in: |
+      113 201
+    out: |
+      NNE 3
+  - name: sample8
+    in: |
+      2048 16
+    out: |
+      SSW 1
+
+extend:
+  - type: Text
+    path: "./c"
+    in: /in/*.txt
+    out: /out/*.txt

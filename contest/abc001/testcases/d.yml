@@ -1,0 +1,40 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      4
+      1148-1210
+      1323-1401
+      1106-1123
+      1129-1203
+    out: |
+      1105-1210
+      1320-1405
+  - name: sample2
+    in: |
+      1
+      0000-2400
+    out: |
+      0000-2400
+  - name: sample3
+    in: |
+      6
+      1157-1306
+      1159-1307
+      1158-1259
+      1230-1240
+      1157-1306
+      1315-1317
+    out: |
+      1155-1310
+      1315-1320
+
+extend:
+  - type: Text
+    path: "./d"
+    in: /in/*.txt
+    out: /out/*.txt
