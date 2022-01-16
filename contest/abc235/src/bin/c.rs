@@ -19,29 +19,45 @@ fn main() {
     }
 
     // メモ
-    let mut memo: HashMap<usize, Vec<usize>> = HashMap::new();
+    let mut memo = HashMap::new();
 
     for (i, ai) in a.iter().enumerate() {
-        if memo.contains_key(ai) {
-            memo.get_mut(&*ai).unwrap().push(i);
-        } else {
-            memo.insert(*ai, vec![]);
-            memo.get_mut(&*ai).unwrap().push(i);
-        }
-        //memo[*ai].push(i);
+        memo.entry(*ai)
+            .or_insert(vec![])
+            .push(i as i32 + 1);
     }
 
     for _ in 0..q {
         input! {x: usize, k: usize};
-        let key = memo.get(&x);
-        match key {
-            None => println!("-1"),
-            Some(vec) => if vec.len() >= k {
-                println!("{}", vec[k-1] + 1);
-                } else {
-                    println!("-1");
-                }
-            };
+        let ans = memo.get(&x)
+                    .map_or(-1, |p| p.get(k - 1)
+                                                            .cloned()
+                                                            .unwrap_or(-1));
+
+        println!("{}", ans);
     }
+
+    // for (i, ai) in a.iter().enumerate() {
+    //     if memo.contains_key(ai) {
+    //         memo.get_mut(&*ai).unwrap().push(i);
+    //     } else {
+    //         memo.insert(*ai, vec![]);
+    //         memo.get_mut(&*ai).unwrap().push(i);
+    //     }
+    //     //memo[*ai].push(i);
+    // }
+
+    // for _ in 0..q {
+    //     input! {x: usize, k: usize};
+    //     let key = memo.get(&x);
+    //     match key {
+    //         None => println!("-1"),
+    //         Some(vec) => if vec.len() >= k {
+    //             println!("{}", vec[k-1] + 1);
+    //             } else {
+    //                 println!("-1");
+    //             }
+    //         };
+    // }
 
 }

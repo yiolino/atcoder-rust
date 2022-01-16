@@ -613,3 +613,8 @@ fn blen(v: i64) -> u32 {
 std::mem::swap(&mut a, &mut b);
 ```
 
+
+## Rustのcloneとclonedの違い
+https://minerva.mamansoft.net/Notes/Rustのcloneとclonedの違い
+
+
