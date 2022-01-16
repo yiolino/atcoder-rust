@@ -70,6 +70,27 @@ map.entry(key).or_insert_with(|| vec![]).push(value);
 println!("{:?}", map);  // {'c': 2, 'a': 2, 'b': 2}
 ```
 
+## HashMap value が vectorの場合
+```
+    let mut memo = HashMap::new();
+
+    for (i, ai) in a.iter().enumerate() {
+        memo.entry(*ai)
+            .or_insert(vec![])
+            .push(i as i32 + 1);
+    }
+
+    for _ in 0..q {
+        input! {x: usize, k: usize};
+        let ans = memo.get(&x)
+                    .map_or(-1, |p| p.get(k - 1)
+                                                            .cloned()
+                                                            .unwrap_or(-1));
+
+        println!("{}", ans);
+    }
+```
+
 ## BTreeSet
 https://maguro.dev/btree-maximum-value/
 

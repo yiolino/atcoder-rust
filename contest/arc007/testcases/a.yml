@@ -1,0 +1,41 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      a
+      abcdefgabcdefg
+    out: |
+      bcdefgbcdefg
+  - name: sample2
+    in: |
+      g
+      aassddffgg
+    out: |
+      aassddff
+  - name: sample3
+    in: |
+      a
+      aaaaa
+    out: "\n"
+  - name: sample4
+    in: |
+      l
+      qwertyuiopasdfghjklzxcvbnm
+    out: |
+      qwertyuiopasdfghjkzxcvbnm
+  - name: sample5
+    in: |
+      d
+      qwsdtgcszddddsdfgvbbnj
+    out: |
+      qwstgcszsfgvbbnj
+
+extend:
+  - type: Text
+    path: "./a"
+    in: /in/*.txt
+    out: /out/*.txt
