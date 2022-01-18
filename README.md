@@ -515,24 +515,6 @@ fn main() {
 ```
 
 
-## std::slice::windowsは、「前の値も含めて for ループを回したい」というユースケースで使うことができる
-```
-// https://qiita.com/hystcs/items/d33e77084277cdba8052
-
-（例）
-let v = vec![1, 2, 3];
-for w in v.windows(2) {
-    let (prev, next) = (w[0], w[1]);
-    println!("{} {}", prev, next)
-}
-// 1 2
-// 2 3
-
-（例）
-ans += t.windows(2).filter(|t| t[0] != t[1]).count(); // 前後で値が異なるときにカウント
-```
-
-
 ## 座標圧縮
 ```
 fn main() {
@@ -639,3 +621,42 @@ std::mem::swap(&mut a, &mut b);
 https://minerva.mamansoft.net/Notes/Rustのcloneとclonedの違い
 
 
+---
+
+## rust 便利イテレータ集
+
+### std::slice::windowsは、「前の値も含めて for ループを回したい」というユースケースで使うことができる
+```
+// https://qiita.com/hystcs/items/d33e77084277cdba8052
+
+（例）
+let v = vec![1, 2, 3];
+for w in v.windows(2) {
+    let (prev, next) = (w[0], w[1]);
+    println!("{} {}", prev, next)
+}
+// 1 2
+// 2 3
+
+（例）
+ans += t.windows(2).filter(|t| t[0] != t[1]).count(); // 前後で値が異なるときにカウント
+```
+
+### `fold` は状態を持ち， 各要素に対して関数を適用して状態を更新し，その状態を返す
+```
+let a = [1, 2, 3];
+// the sum of all of the elements of the array
+let sum = a.iter().fold(0, |acc, x| acc + x);
+
+# 例えばこんな使い方
+# abc109 c
+use proconio::{input};
+use num::integer::gcd;
+ 
+fn main() {
+    input!{n:u32,x:u64,mut xn:[u64;n]}
+    xn.push(x);
+    xn.sort();
+    println!("{:?}",xn.windows(2).map(|a| a[1]-a[0]).fold(xn[1]-xn[0],|ans,v| gcd(ans,v)));
+}
+```
