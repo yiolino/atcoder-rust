@@ -13,8 +13,23 @@ use superslice::Ext;
 
 fn main() {
     input!{
-        
+        mut n: usize,
     }
 
-    println!();
+    let mut vec = vec![];
+    let letters = "abcdefghijklmnopqrstuvwxyz".chars().collect::<Vec<char>>();
+
+
+    while n > 0 {
+        n -= 1;
+        let amari = n % 26;
+        vec.push(letters[amari]);
+
+        n /= 26;
+    }
+
+    vec.reverse();
+    let ans = vec.iter().join("");
+
+    println!("{}", ans);
 }
