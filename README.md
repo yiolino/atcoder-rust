@@ -649,6 +649,11 @@ std::mem::swap(&mut a, &mut b);
 https://minerva.mamansoft.net/Notes/Rustのcloneとclonedの違い
 
 
+## a / b の整数切り上げ
+```
+(a + (b - 1)) / b
+```
+
 ---
 
 ## rust 便利イテレータ集
@@ -688,3 +693,4 @@ fn main() {
     println!("{:?}",xn.windows(2).map(|a| a[1]-a[0]).fold(xn[1]-xn[0],|ans,v| gcd(ans,v)));
 }
 ```
+
