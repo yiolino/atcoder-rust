@@ -656,6 +656,14 @@ https://minerva.mamansoft.net/Notes/Rustのcloneとclonedの違い
 
 ---
 
+## 閉路検出 トポロジカルソート
+dfsで再帰から帰ってくるときのフラグを考える
+past202107-open J問題
+
+
+
+
+
 ## rust 便利イテレータ集
 
 ### std::slice::windowsは、「前の値も含めて for ループを回したい」というユースケースで使うことができる
