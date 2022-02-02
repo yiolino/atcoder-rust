@@ -13,8 +13,25 @@ use superslice::Ext;
 
 fn main() {
     input!{
-        
+        n: usize,
+        a: [usize; n],
     }
 
-    println!();
+    let mut map = HashMap::new();
+
+    for ai in a {
+        *map.entry(ai).or_insert(0) += 1_usize;
+    }
+
+    let mut ans = 0;
+
+    for (k,v)in map {
+        if k > v {
+            ans += v;
+        } else if k < v {
+            ans += v - k;
+        }
+    }
+
+    println!("{}", ans);
 }
