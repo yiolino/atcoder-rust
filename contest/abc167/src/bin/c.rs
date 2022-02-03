@@ -13,8 +13,19 @@ use superslice::Ext;
 
 fn main() {
     input!{
-        
+        n: usize,
+        m: usize,
+        x: usize,
+        c_a: [[usize; m + 1]; n],
     }
 
+    // dfsで解いてみる
+
     println!();
+}
+
+
+struct DFS {
+    total_price: usize,
+    
 }
