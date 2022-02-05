@@ -19,54 +19,31 @@ fn main() {
         c_a: [[usize; m + 1]; n],
     }
 
-    // dfsの全探索で解いてみる
-    let dfs = DFS::new(n, m, x, c_a);
+    // bit全探索で解く
+    let mut ans = std::usize::MAX;
 
-    let res = dfs.dfs(0, vec![0; m + 1]);
-
-    if res < std::usize::MAX {
-        println!("{}", res);    
-    } else {
-        println!("-1");
-    }
-}
-
-
-struct DFS {
-    n: usize,
-    m: usize,
-    x: usize,
-    c_a: Vec<Vec<usize>>,
-}
-
-impl DFS {
-    fn new(n: usize, m: usize, x: usize, c_a: Vec<Vec<usize>>) -> Self {
-        DFS {
-            n: n,
-            m: m,
-            x: x,
-            c_a: c_a,
-        }
-    }
-
-    fn dfs(&self, idx: usize, asum: Vec<usize>) -> usize {
-        let mut res = std::usize::MAX;
-        if idx == self.n {
-            if (1..self.m+1).all(|i| asum[i] >= self.x) {
-                res = res.min(asum[0]);
+    for bit in 0..1<<n {
+        let mut rikai = vec![0; m];
+        let mut tmp_ans = 0;
+        for j in 0..n {
+            if (1 << j) & bit > 0 {
+                tmp_ans += c_a[j][0];
+                for k in 0..m {
+                    rikai[k] += c_a[j][k+1];
+                }
             }
-        } else {
-            // 次を選ばない場合
-            res = min(res, self.dfs(idx+1, asum.clone()));
-
-            // 次を選ぶ場合
-            let asum2 = asum.iter().zip(self.c_a[idx].iter())
-                                    .map(|(x, y)| x + y)
-                                    .collect::<Vec<usize>>();
-            res = min(res, self.dfs(idx + 1, asum2))
-
         }
 
-        res
+        let is_over_x = rikai.iter().all(|r| *r >= x);
+        if is_over_x {
+            ans = ans.min(tmp_ans);
+        }
     }
+
+    
+    if ans == std::usize::MAX {
+        println!("-1");
+        return;
+    }
+    println!("{}", ans);
 }
