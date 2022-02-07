@@ -1,0 +1,29 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      4
+      ab
+      ba
+      ab
+      cb
+    out: |
+      LOSE
+  - name: sample2
+    in: |
+      3
+      atcoder
+      redcoder
+      recorder
+    out: |
+      DRAW
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
