@@ -1,0 +1,32 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      chokudai
+    out: |
+      chkd
+  - name: sample2
+    in: |
+      okanemochi
+    out: |
+      knmch
+  - name: sample3
+    in: |
+      aoki
+    out: |
+      k
+  - name: sample4
+    in: |
+      mazushii
+    out: |
+      mzsh
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
