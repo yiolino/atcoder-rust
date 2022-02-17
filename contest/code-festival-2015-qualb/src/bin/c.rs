@@ -13,8 +13,28 @@ use superslice::Ext;
 
 fn main() {
     input!{
-        
+        n: usize,
+        m: usize,
+        mut a: [usize; n],
+        mut b: [usize; m],
     }
 
-    println!();
+    if n < m {
+        println!("NO");
+        return;
+    }
+
+    a.sort();
+    a.reverse();
+    b.sort();
+    b.reverse();
+
+    for i in 0..m {
+        if b[i] > a[i] {
+            println!("NO");
+            return;
+        }
+    }
+
+    println!("YES");
 }
