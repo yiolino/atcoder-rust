@@ -23,6 +23,9 @@ https://algo-logic.info/divisor/
 abc121-c
 ```
     shops.sort_by_key(|s| s.price);
+
+    # keyが複数の場合はtupleをkeyとする。
+    vec.sort_by_key(|(time, p)| (*time, *p));
 ```
 
 ## 大文字、小文字の判断
