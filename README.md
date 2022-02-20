@@ -664,7 +664,8 @@ dfsで再帰から帰ってくるときのフラグを考える
 past202107-open J問題
 
 
-
+## いもす法
+https://note.com/kirimin_chan/n/n7663e3bb8a05
 
 
 ## rust 便利イテレータ集
