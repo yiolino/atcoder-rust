@@ -39,35 +39,35 @@ impl DFS {
 
 
     
-    /// 二部グラフ判定（未完成なう）
-    /// けんちょん本 p.233を参照
-    fn is_bipartite＿graph(&mut self, graph: &Vec<Vec<usize>>, s: usize) {
-        self.seen[s] = 0;  // 初期条件： 頂点sを初期頂点とする。
-        self.que.push_back(s);  // sをtodoリストに入れる。
+    // /// 二部グラフ判定（未完成なう）
+    // /// けんちょん本 p.233を参照
+    // fn is_bipartite＿graph(&mut self, graph: &Vec<Vec<usize>>, s: usize) {
+    //     self.seen[s] = 0;  // 初期条件： 頂点sを初期頂点とする。
+    //     self.que.push_back(s);  // sをtodoリストに入れる。
 
-        // DFS開始（キューが空になるまで探索を行う）
-        while !self.que.is_empty() {
-            let tmp_v = self.que.pop_front();  // キューから先頭頂点を取り出す。
-            let mut v = 0;
+    //     // DFS開始（キューが空になるまで探索を行う）
+    //     while !self.que.is_empty() {
+    //         let tmp_v = self.que.pop_front();  // キューから先頭頂点を取り出す。
+    //         let mut v = 0;
 
-            if let Some(vv) = tmp_v {   
-                v = vv;
-            } else {
-                panic!("que is empty. Something wrong!");
-            }
+    //         if let Some(vv) = tmp_v {   
+    //             v = vv;
+    //         } else {
+    //             panic!("que is empty. Something wrong!");
+    //         }
 
-            // vからたどれる頂点を全て調べる。
-            for x in &graph[v] {
-                // 既に発見済みの頂点は探索しない
-                if self.seen[*x as usize] != -1 {
-                    continue;
-                }
+    //         // vからたどれる頂点を全て調べる。
+    //         for x in &graph[v] {
+    //             // 既に発見済みの頂点は探索しない
+    //             if self.seen[*x as usize] != -1 {
+    //                 continue;
+    //             }
 
-                self.seen[*x as usize] = self.seen[v] + 1;  // 新たな頂点xについて、距離情報を更新（sから始まって、1ずつ足されていく）。
-                self.que.push_back(*x);  // todoリストに入れる。
-            }
-        }
-    }
+    //             self.seen[*x as usize] = self.seen[v] + 1;  // 新たな頂点xについて、距離情報を更新（sから始まって、1ずつ足されていく）。
+    //             self.que.push_back(*x);  // todoリストに入れる。
+    //         }
+    //     }
+    // }
 
 }
 
