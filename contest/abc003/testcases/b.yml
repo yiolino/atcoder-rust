@@ -1,0 +1,30 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      ch@ku@ai
+      choku@@i
+    out: |
+      You can win
+  - name: sample2
+    in: |
+      aoki
+      @ok@
+    out: |
+      You will lose
+  - name: sample3
+    in: |
+      arc
+      abc
+    out: |
+      You will lose
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
