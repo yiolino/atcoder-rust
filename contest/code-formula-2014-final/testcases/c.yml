@@ -1,0 +1,30 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      @codeformula why is this contest so easy
+    out: |
+      codeformula
+  - name: sample2
+    in: |
+      myon @@c @a @aba@a @@bb bbb @@@@@ @a test  @ space  aaa test @a@a  test@takoyaki
+    out: |
+      a
+      aba
+      bb
+      c
+      takoyaki
+  - name: sample3
+    in: |
+      no atmark
+    out: >
+
+extend:
+  - type: Text
+    path: "./c"
+    in: /in/*.txt
+    out: /out/*.txt
