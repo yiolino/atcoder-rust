@@ -13,8 +13,24 @@ use superslice::Ext;
 
 fn main() {
     input!{
-        
+        s: Chars,
     }
 
-    println!();
+    let n = s.len() - 1;
+    let mut ans = 0;
+    for (i, si) in s.into_iter().enumerate() {
+        match si {
+            'U' => {
+                ans += n - i;
+                ans += 2 * i;
+            },
+            'D' => {
+                ans += 2 * (n - i);
+                ans += i;
+            },
+            _ => unreachable!(),
+        }
+    }
+
+    println!("{}", ans);
 }
