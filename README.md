@@ -672,6 +672,10 @@ https://note.com/kirimin_chan/n/n7663e3bb8a05
 https://qiita.com/scivola/items/60141f262caa53983c3a
 code-formula-2014-final/src/bin/c.rs
 
+## グラフの2点間の距離
+根付き木が構成出来るなら、根からの深さの和を考えればよい
+https://yunix-kyopro.hatenablog.com/entry/2021/07/11/020240?_ga=2.121161536.9506465.1625937519-1301098457.1625937519#f-cd9f4786
+https://blog.hamayanhamayan.com/entry/2021/07/11/154020
 
 ## rust 便利イテレータ集
 

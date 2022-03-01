@@ -1,5 +1,12 @@
-use proconio::*;
-use std::collections::VecDeque;
+#[allow(unused_imports)]
+use proconio::{input, fastout, marker::Chars};
+#[allow(unused_imports)]
+use std::collections::{HashSet, HashMap, BTreeSet, VecDeque};
+#[allow(unused_imports)]
+use std::cmp::{max, min};
+#[allow(unused_imports)]
+use itertools::Itertools;
+
 
 fn main() {
     input!{
@@ -16,19 +23,18 @@ fn main() {
         graph[b].push(a);
     }
 
-    // 0を根付き木とした場合の深さを考える。
-    let mut bfs = BFS::new(n);
-    bfs.bfs(0, &graph);
-
     for _ in 0..q {
         input! {mut c: usize, mut d: usize};
         c -= 1;
         d -= 1;
 
-        let sum_depth = bfs.dist[c] + bfs.dist[d];
+        let mut bfs = BFS::new(n);
+        bfs.bfs(c, &graph);
+
+        let dist = bfs.dist[d];
 
         
-        let ans = if sum_depth % 2 == 0 {
+        let ans = if dist % 2 == 0 {
             "Town"
         } else {
             "Road"
