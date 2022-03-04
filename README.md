@@ -6,6 +6,9 @@ https://blog.hamadu.net/2018/08/vscode-rust.html
 
 # TIPS
 
+# 教育的アルゴリズムリポジトリ
+https://github.com/TheAlgorithms/Rust
+
 ## 配列の最大値、最小値
 https://stackoverflow.com/questions/58669865/how-to-get-the-minimum-value-of-a-vector-in-rust
 ```
@@ -645,6 +648,7 @@ fn blen(v: i64) -> u32 {
 ## 2つの値を入れ替える swap スワップ
 ```
 std::mem::swap(&mut a, &mut b);
+vec.swap(i, j);  // Vec<_> バージョン
 ```
 
 
@@ -663,7 +667,6 @@ https://minerva.mamansoft.net/Notes/Rustのcloneとclonedの違い
 dfsで再帰から帰ってくるときのフラグを考える
 past202107-open J問題
 
-
 ## いもす法
 https://note.com/kirimin_chan/n/n7663e3bb8a05
 
@@ -677,9 +680,25 @@ code-formula-2014-final/src/bin/c.rs
 https://yunix-kyopro.hatenablog.com/entry/2021/07/11/020240?_ga=2.121161536.9506465.1625937519-1301098457.1625937519#f-cd9f4786
 https://blog.hamayanhamayan.com/entry/2021/07/11/154020
 
-## rust 便利イテレータ集
+## ダブリング
+https://www.slideshare.net/satanic2/ss-72500089
+（例）abc167 d
 
-### std::slice::windowsは、「前の値も含めて for ループを回したい」というユースケースで使うことができる
+
+## ダブリングによる木の最近共通祖先（LCA：Lowest Common Ancestor）を求めるアルゴリズム
+https://algo-logic.info/lca/
+
+
+
+
+
+
+
+
+
+# rust 便利イテレータ集
+
+## std::slice::windowsは、「前の値も含めて for ループを回したい」というユースケースで使うことができる
 ```
 // https://qiita.com/hystcs/items/d33e77084277cdba8052
 
@@ -696,7 +715,7 @@ for w in v.windows(2) {
 ans += t.windows(2).filter(|t| t[0] != t[1]).count(); // 前後で値が異なるときにカウント
 ```
 
-### `fold` は状態を持ち， 各要素に対して関数を適用して状態を更新し，その状態を返す
+## `fold` は状態を持ち， 各要素に対して関数を適用して状態を更新し，その状態を返す
 ```
 let a = [1, 2, 3];
 // the sum of all of the elements of the array
