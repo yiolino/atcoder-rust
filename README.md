@@ -687,7 +687,7 @@ https://www.slideshare.net/satanic2/ss-72500089
 
 ## ダブリングによる木の最近共通祖先（LCA：Lowest Common Ancestor）を求めるアルゴリズム
 https://algo-logic.info/lca/
-
+abc209 d
 
 
 
