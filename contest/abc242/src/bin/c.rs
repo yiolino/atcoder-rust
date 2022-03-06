@@ -26,22 +26,15 @@ fn main() {
 
     for h in 1..n {
         for w in 0..9 {
-            if w == 0 {
-                dp[h][w] += dp[h - 1][w];
-                dp[h][w] %= MOD;
-                dp[h][w] += dp[h - 1][w + 1];
-                dp[h][w] %= MOD;
-            } else if w == 8 {
-                dp[h][w] += dp[h - 1][w];
-                dp[h][w] %= MOD;
+            dp[h][w] += dp[h - 1][w];
+            dp[h][w] %= MOD;
+
+            if w != 0 {
                 dp[h][w] += dp[h - 1][w - 1];
                 dp[h][w] %= MOD;
-            } else {
-                dp[h][w] += dp[h - 1][w];
-                dp[h][w] %= MOD;
+            }
+            if w != 8 {
                 dp[h][w] += dp[h - 1][w + 1];
-                dp[h][w] %= MOD;
-                dp[h][w] += dp[h - 1][w - 1];
                 dp[h][w] %= MOD;
             }
         }
