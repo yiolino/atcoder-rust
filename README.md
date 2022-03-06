@@ -684,17 +684,18 @@ https://blog.hamayanhamayan.com/entry/2021/07/11/154020
 https://www.slideshare.net/satanic2/ss-72500089
 （例）abc167 d
 
-
 ## ダブリングによる木の最近共通祖先（LCA：Lowest Common Ancestor）を求めるアルゴリズム
 https://algo-logic.info/lca/
 abc209 d
 
+## 木構造
+木ならば、頂点 N、辺 N - 1
+木は 2部グラフ
 
 
 
 
-
-
+<br> <br>
 
 # rust 便利イテレータ集
 
