@@ -1,20 +1,43 @@
-#[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars, marker::Usize1, marker::Bytes};
-#[allow(unused_imports)]
-use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
-#[allow(unused_imports)]
-use std::cmp::{max, min, Reverse};
-#[allow(unused_imports)]
-use itertools::Itertools;
-#[allow(unused_imports)]
-use petgraph::unionfind::UnionFind;
-#[allow(unused_imports)]
-use superslice::Ext;
+use std::cmp::Reverse;
+use proconio::input;
 
 fn main() {
     input!{
-        
+        n: usize,
+        a: [i64; n],
+        b: [i64; n],
     }
 
-    println!();
+    // a と b の差分を考えていく
+    let mut ans = 0;
+    let mut debt = 0;
+    let mut plus_vec = vec![];
+
+    for (a, b) in a.into_iter().zip(b) {
+        if a - b < 0 {
+            ans += 1;
+            debt += b - a;
+        } else if b == a {
+            continue;
+        } else {
+            plus_vec.push(a - b);
+        }
+    }
+
+    plus_vec.sort_by_key(|x| Reverse(*x));
+
+    plus_vec.insert(0, 0);
+    for i in 1..plus_vec.len() {
+        plus_vec[i] += plus_vec[i-1];
+    }
+
+    for i in 0..plus_vec.len() {
+        if plus_vec[i] >= debt {
+            ans += i;
+            println!("{}", ans);
+            return;
+        }
+    }
+
+    println!("-1");
 }

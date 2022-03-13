@@ -1,16 +1,18 @@
-#[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars};
-#[allow(unused_imports)]
-use std::collections::{HashSet, HashMap, BTreeSet};
-#[allow(unused_imports)]
-use std::cmp::{max, min};
+use proconio::input;
 
-#[fastout]
-#[allow(non_snake_case)]
 fn main() {
     input!{
-        
+        a: f64,
+        b: f64,
+        x: f64,
     }
 
-    println!();
+    let ans = if a * a * b > x * 2. {
+        (a * b * b / (2. * x)).atan() * 180.0 / std::f64::consts::PI
+    } else {
+        ((2. * b - 2. * x / (a * a)) / a).atan() * 180.0 / std::f64::consts::PI
+    };
+
+
+    println!("{}", ans);
 }
