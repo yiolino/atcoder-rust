@@ -1,0 +1,22 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      oder atc
+    out: |
+      atcoder
+  - name: sample2
+    in: |
+      humu humu
+    out: |
+      humuhumu
+
+extend:
+  - type: Text
+    path: "./a"
+    in: /in/*.txt
+    out: /out/*.txt
