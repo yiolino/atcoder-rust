@@ -1,20 +1,26 @@
-#[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars, marker::Usize1, marker::Bytes};
-#[allow(unused_imports)]
-use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
-#[allow(unused_imports)]
-use std::cmp::{max, min, Reverse};
-#[allow(unused_imports)]
-use itertools::Itertools;
-#[allow(unused_imports)]
-use petgraph::unionfind::UnionFind;
-#[allow(unused_imports)]
-use superslice::Ext;
+use std::collections::HashMap;
+
+use proconio::*;
 
 fn main() {
     input!{
-        
+        n: usize,
+        k: i64,
+        a: [i64; n],
     }
 
-    println!();
+    let mut cum = vec![0; n + 1];
+    for i in 1..n+1 {
+        cum[i] = cum[i - 1] + a[i - 1];
+    }
+
+    let mut map = HashMap::new();
+    let mut ans = 0_usize;
+    for i in 0..n+1 {
+        ans += map.get(&cum[i]).unwrap_or(&0);
+        *map.entry(cum[i] + k).or_insert(0) += 1;
+    }
+
+
+    println!("{}", ans);
 }
