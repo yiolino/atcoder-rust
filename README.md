@@ -31,6 +31,11 @@ abc121-c
     vec.sort_by_key(|(time, p)| (*time, *p));
 ```
 
+## fload型のsort
+```
+sort_by(|a, b| a.partial_cmp(b).unwrap())
+```
+
 ## 大文字、小文字の判断
 c.is_uppercase(), c.is_lowercase()... c: char, return: bool
 
