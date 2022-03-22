@@ -8,21 +8,34 @@ fn main() {
 
     a.sort_by(|a, b| a.partial_cmp(b).unwrap());
 
-    let mut cum = vec![0.0; n + 1];
-    for i in 0..n {
-        cum[i + 1] = cum[i] + a[i];
+    // 三分探索で解く
+    let mut lower = 0.0;
+    let mut upper = **&a.last().unwrap();
+
+    while upper - lower > 1e-7 {
+        let t1 = (2. * lower + upper) / 3.;
+        let t2 = (lower + 2. * upper) / 3.;
+
+        if f(n, t1, &a) <= f(n, t2, &a) {
+            upper = t2;
+        } else {
+            lower = t1;
+        }
     }
 
-    let mut min_f = std::f64::MAX;
-
-    for i in 0..n {
-        let x = a[i] / 2.0;
-        let f = n as f64 * x - (cum[i + 1] + 2.0 * x * (n - i - 1) as f64);
-
-        min_f = min_f.min(f);
-    }
-
-    let ans = (min_f + cum[n]) / n as f64;
+    let ans = f(n, lower, &a) / n as f64;
 
     println!("{}", ans);
+}
+
+
+fn f(n:usize, x: f64, a: &Vec<f64>) -> f64 {
+    let mut res = 0.;
+
+    for a in a {
+        res += a - a.min(2. * x);
+    }
+
+    res += n as f64 * x;
+    res
 }

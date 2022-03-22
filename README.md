@@ -9,6 +9,9 @@ https://blog.hamadu.net/2018/08/vscode-rust.html
 # 教育的アルゴリズムリポジトリ
 https://github.com/TheAlgorithms/Rust
 
+## 三分探索
+https://kyopro.hateblo.jp/entry/2019/04/25/134128
+
 ## 配列の最大値、最小値
 https://stackoverflow.com/questions/58669865/how-to-get-the-minimum-value-of-a-vector-in-rust
 ```
