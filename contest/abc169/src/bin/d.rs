@@ -1,20 +1,51 @@
-#[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars, marker::Usize1, marker::Bytes};
-#[allow(unused_imports)]
-use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
-#[allow(unused_imports)]
-use std::cmp::{max, min, Reverse};
-#[allow(unused_imports)]
-use itertools::Itertools;
-#[allow(unused_imports)]
-use petgraph::unionfind::UnionFind;
-#[allow(unused_imports)]
-use superslice::Ext;
+use proconio::input;
 
 fn main() {
     input!{
-        
+        n: i64,
     }
 
-    println!();
+    let mut vec = prime_factorize(n);
+
+    let mut ans = 0;
+    for (_, ex) in vec.iter_mut() {
+        for i in 1..1000i64 {
+            if *ex >= i {
+                ans += 1;
+                *ex -= i;
+            }
+        }
+    }
+
+    println!("{}", ans);
+}
+
+
+fn prime_factorize(mut n: i64) -> Vec<(i64, i64)> {
+    let mut vec = vec![];
+
+    let mut cnt = 2;
+    while cnt * cnt <= n {
+        if n % cnt != 0 {
+            cnt += 1;
+            continue;
+        }
+
+        let mut ex = 0; // 指数
+        while n % cnt == 0 {
+            ex += 1;
+            n /= cnt;
+        }
+
+        vec.push((cnt, ex));
+
+        cnt += 1;
+    }   
+
+    // 最後に残った数について
+    if n != 1 {
+        vec.push((n, 1));
+    }
+    
+    vec
 }
