@@ -1,14 +1,20 @@
-#[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars};
-#[allow(unused_imports)]
-use std::collections::HashMap;
+use proconio::input;
 
-#[fastout]
-#[allow(non_snake_case)]
 fn main() {
     input!{
-        
+        x: usize,
     }
 
-    println!();
+    let mut ans = (x / 11) * 2;
+    if x % 11 == 0 {
+        ans += 0
+    }
+    else if x % 11 > 6 {
+        ans += 2
+    } else {
+        ans += 1
+    };
+
+    println!("{}", ans);
 }
+
