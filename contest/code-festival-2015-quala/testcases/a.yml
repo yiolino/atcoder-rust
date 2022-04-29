@@ -1,0 +1,22 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      CODEFESTIVAL2014
+    out: |
+      CODEFESTIVAL2015
+  - name: sample2
+    in: |
+      CHOKUDAI2014
+    out: |
+      CHOKUDAI2015
+
+extend:
+  - type: Text
+    path: "./a"
+    in: /in/*.txt
+    out: /out/*.txt
