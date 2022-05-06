@@ -1,0 +1,50 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      4
+      unagi 20
+      usagi 13
+      snuke 42
+      smeke 7
+    out: |
+      snuke
+  - name: sample2
+    in: |
+      5
+      a 10
+      b 20
+      c 30
+      d 40
+      e 100
+    out: |
+      atcoder
+  - name: sample3
+    in: |
+      14
+      yasuzuka 3340
+      uragawara 4032
+      oshima 2249
+      maki 2614
+      kakizaki 11484
+      ogata 10401
+      kubiki 9746
+      yoshikawa 5142
+      joetsu 100000
+      nakago 4733
+      itakura 7517
+      kiyosato 3152
+      sanwa 6190
+      nadachi 3169
+    out: |
+      joetsu
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
