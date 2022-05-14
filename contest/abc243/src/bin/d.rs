@@ -1,5 +1,3 @@
-use std::collections::VecDeque;
-
 use proconio::{input, marker::Chars};
 
 fn main() {
@@ -9,28 +7,15 @@ fn main() {
         s: Chars
     }
 
-    let mut deque = VecDeque::new();
+    let mut d = format!("{:b}", x);
     for si in s {
-        if let Some(l) = deque.back() {
-            if (*l == 'R' || *l == 'L') && si == 'U' {
-                deque.pop_back();
-            } else {
-                deque.push_back(si);
-            }
-        } else {
-            deque.push_back(si);
-        }
-    }
-
-    let mut ans = x;
-    for d in deque {
-        match d {
-            'U' => ans /= 2,
-            'L' => ans *= 2,
-            'R' => {ans *= 2; ans += 1},
+        match si {
+            'U' => {d.pop();},
+            'L' => d.push('0'),
+            'R' => d.push('1'),
             _ => unreachable!(),
         }
-    }
+    } 
 
-    println!("{}", ans);
+    println!("{}", i64::from_str_radix(&d, 2).unwrap());
 }
