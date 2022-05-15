@@ -703,8 +703,11 @@ abc209 d
 ## 誤差
 EPSを適切に設定して比較に使う（誤差対策でA < BはA < B - EPSとするテンプレがある）
 
-
-
+## 整数の10進数表現と2進数表現の変換
+```
+let mut d = format!("{:b}", x);
+i64::from_str_radix(&d, 2).unwrap()
+```
 
 <br> <br>
 
