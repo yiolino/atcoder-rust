@@ -1,0 +1,40 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      7 26
+      NAOHIRO
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ
+    out: |
+      2
+  - name: sample2
+    in: |
+      8 8
+      TAKOYAKI
+      TAKOYAKI
+    out: |
+      1
+  - name: sample3
+    in: |
+      8 4
+      CHOKUDAI
+      MYON
+    out: |
+      -1
+  - name: sample4
+    in: |
+      6 6
+      MONAKA
+      NAMAKO
+    out: |
+      1
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
