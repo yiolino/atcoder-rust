@@ -9,6 +9,12 @@ https://blog.hamadu.net/2018/08/vscode-rust.html
 # 教育的アルゴリズムリポジトリ
 https://github.com/TheAlgorithms/Rust
 
+## XORの性質
+3 つ以上の整数の XOR の計算は自由な順序で行える
+a ⊕ b ⊕ c = b ⊕ c ⊕ a = (a ⊕ b) ⊕ c = c ⊕ (a ⊕ b)
+a ⊕ b ⊕ a = (a ⊕ a) ⊕ b = 0 ⊕ b = b
+参考：abc171 E
+
 ## 三分探索
 https://kyopro.hateblo.jp/entry/2019/04/25/134128
 
