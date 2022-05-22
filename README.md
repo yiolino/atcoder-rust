@@ -228,6 +228,7 @@ let ans = ans.into_iter().collect::<String>();
 
 ## usize の数字を集めてスペースでつなぎ、Stringにする。
 ```
+// use itertools::Itertools; をインポートしておく
 let ans: String = tmp_vec
                                 .into_iter()
                                 .map(|x| x.to_string())

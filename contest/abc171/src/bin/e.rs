@@ -1,20 +1,18 @@
-#[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars, marker::Usize1, marker::Bytes};
-#[allow(unused_imports)]
-use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
-#[allow(unused_imports)]
-use std::cmp::{max, min, Reverse};
-#[allow(unused_imports)]
 use itertools::Itertools;
-#[allow(unused_imports)]
-use petgraph::unionfind::UnionFind;
-#[allow(unused_imports)]
-use superslice::Ext;
+use proconio::input;
 
 fn main() {
-    input!{
-        
+    input! {
+        n: usize,
+        a: [usize; n],
     }
 
-    println!();
+    let s = a.iter().fold(0, |acc, x| acc ^ x);
+    let vec = a.iter().map(|x| x ^ s).collect::<Vec<usize>>();
+    let ans: String = vec
+        .into_iter()
+        .map(|x| x.to_string())
+        .join(" ");
+
+    println!("{}", ans);
 }
