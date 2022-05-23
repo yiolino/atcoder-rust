@@ -1,0 +1,27 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      2012/05/02
+    out: |
+      2013/01/01
+  - name: sample2
+    in: |
+      2020/05/02
+    out: |
+      2020/05/02
+  - name: sample3
+    in: |
+      2088/02/28
+    out: |
+      2088/02/29
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
