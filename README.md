@@ -13,7 +13,11 @@ https://github.com/TheAlgorithms/Rust
 3 つ以上の整数の XOR の計算は自由な順序で行える
 a ⊕ b ⊕ c = b ⊕ c ⊕ a = (a ⊕ b) ⊕ c = c ⊕ (a ⊕ b)
 a ⊕ b ⊕ a = (a ⊕ a) ⊕ b = 0 ⊕ b = b
-参考：abc171 E
+参考：abc171 
+
+競技プログラミングにおけるXORのTips
+https://qiita.com/kuuso1/items/778acaa7011d98a3ff3a
+
 
 ## 三分探索
 https://kyopro.hateblo.jp/entry/2019/04/25/134128
