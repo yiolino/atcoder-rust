@@ -49,6 +49,13 @@ abc121-c
 sort_by(|a, b| a.partial_cmp(b).unwrap())
 ```
 
+## 降順でのsort
+https://stackoverflow.com/questions/60916194/how-to-sort-a-vector-in-descending-order-in-rust
+```
+use std::cmp::Reverse;
+vec.sort_by_key(|w| Reverse(*w));
+```
+
 ## 大文字、小文字の判断
 c.is_uppercase(), c.is_lowercase()... c: char, return: bool
 

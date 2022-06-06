@@ -1,20 +1,22 @@
-#[allow(unused_imports)]
-use proconio::{input, fastout, marker::Chars, marker::Usize1, marker::Bytes};
-#[allow(unused_imports)]
-use std::collections::{HashSet, HashMap, BTreeSet, VecDeque, BinaryHeap};
-#[allow(unused_imports)]
-use std::cmp::{max, min, Reverse};
-#[allow(unused_imports)]
-use itertools::Itertools;
-#[allow(unused_imports)]
-use petgraph::unionfind::UnionFind;
-#[allow(unused_imports)]
-use superslice::Ext;
+use std::cmp::Reverse;
+use proconio::input;
 
 fn main() {
     input!{
-        
+        c: usize,
     }
 
-    println!();
+    let mut max_sizes = vec![0; 3];
+
+    for _ in 0..c {
+        input! {mut nml: [usize; 3]};
+        nml.sort_by_key(|w| Reverse(*w));
+
+        for (i, ni) in nml.iter().enumerate() {
+            max_sizes[i] = max_sizes[i].max(*ni);
+        }
+    }
+
+    let ans = max_sizes.iter().fold(1, |acc, x| acc * x);
+    println!("{}", ans);
 }
