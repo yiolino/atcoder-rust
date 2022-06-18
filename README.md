@@ -183,6 +183,16 @@ fn main() {
 }
 ```
 
+## vecの要素のindexを取得
+https://stackoverflow.com/questions/30558246/how-do-i-find-the-index-of-an-element-in-an-array-vector-or-slice
+```
+fn main() {
+    let test = vec!["one", "two", "three"];
+    let index = test.iter().position(|&r| r == "two").unwrap();
+    println!("{}", index);
+}
+```
+
 
 ## combination
 ```
