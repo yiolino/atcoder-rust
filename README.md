@@ -123,6 +123,7 @@ println!("{:?}", map);  // {'c': 2, 'a': 2, 'b': 2}
 ```
 
 ## BTreeSet
+最大値と最小値を取り出す
 https://maguro.dev/btree-maximum-value/
 
 ## BTreeSet応用 昇順に並んだ配列から指定の値より1つ小さい値と1つ大きな値を取り出す。
