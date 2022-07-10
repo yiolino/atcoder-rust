@@ -9,6 +9,21 @@ https://blog.hamadu.net/2018/08/vscode-rust.html
 # 教育的アルゴリズムリポジトリ
 https://github.com/TheAlgorithms/Rust
 
+## ランレングス圧縮
+from https://atcoder.jp/contests/abc259/submissions/33076989
+```
+fn run_length_encoding<T: Eq>(a: Vec<T>) -> Vec<(T, usize)> {
+    let mut a = a.into_iter().map(|a| (a, 1)).collect::<Vec<_>>();
+    a.dedup_by(|a, b| {
+        a.0 == b.0 && {
+            b.1 += a.1;
+            true
+        }
+    });
+    a
+}
+```
+
 ## XORの性質
 3 つ以上の整数の XOR の計算は自由な順序で行える
 a ⊕ b ⊕ c = b ⊕ c ⊕ a = (a ⊕ b) ⊕ c = c ⊕ (a ⊕ b)
