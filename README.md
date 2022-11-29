@@ -33,6 +33,9 @@ a ⊕ b ⊕ a = (a ⊕ a) ⊕ b = 0 ⊕ b = b
 競技プログラミングにおけるXORのTips
 https://qiita.com/kuuso1/items/778acaa7011d98a3ff3a
 
+## 二分探索
+upper_bound, lower_bound
+https://docs.rs/superslice/1.0.0/superslice/trait.Ext.html
 
 ## 三分探索
 https://kyopro.hateblo.jp/entry/2019/04/25/134128
