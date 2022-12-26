@@ -587,7 +587,7 @@ fn main() {
 
 
 ## しゃくとり法
-[このサイト](https://scrapbox.io/pocala-kyopro/しゃくとり法) がわかりやすかった。
+[このサイト](htt`ps://scrapbox.io/pocala-kyopro/しゃくとり法) がわかりやすかった。
 
 
 ## スペース含めた文字列を読み込み、スペースでスプリット
