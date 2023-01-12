@@ -3,3 +3,4 @@ contest/*/target
 **/.DS_Store
 
 utils/target
+contest/target/.rustc_info.json
